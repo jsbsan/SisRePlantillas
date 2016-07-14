@@ -1,0 +1,9 @@
+# Gambas Project File 3.0
+# Compiled with Gambas 3.8.4
+Title=SiRePla
+Startup=Main
+Version=0.0.1
+TabSize=2
+Translate=1
+Language=en_US
+Packager=1

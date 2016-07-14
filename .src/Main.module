@@ -1,0 +1,179 @@
+' Gambas module file
+
+
+''IDEA DEL PROGRAMA
+'leer el parametro 2º que es el nombre del archivo que tiene los datos del relleno: NOMBRE
+
+'empezar a analizar el fichero:
+'1 quitar todos los comentarios
+'2 crea otra copia y esta si es la que va a analizar
+'3 ordenes:
+'origen -> indica en la siguiente linea la plantilla.svg que debe de leer
+'destino -> indica donde va a guardar y con que nombre (por defecto nombre de plantilla + _NOMBRE.svg)
+'subst #etiqueta#
+'sustituye el texto "#etiqueta#" por el texto indicado a continuacion
+
+'una vez ternimando la lectura del archivo, crea los .pdf y los une, dejando los .svg por si se quiere editar.
+
+'nota:
+'tambien es posible definir varios origen y destino, para trabajar con varias plantillas
+
+
+Public Sub Main()
+    'parametros que nos pasen
+    dim lista as new string[]
+    dim contador as intener
+    dim argumento as string
+    dim a as integer
+
+            
+     For Each argumento In Application.Args
+       'añadimos todos los argumentos a un array de cadenas
+        lista.add(argumento)
+            ' escribo los argumentos:
+            ' Print "Nº "; contador; ": "; argumento
+        contador += 1
+    Next
+    
+    'nota: el indice 0 es el nombre del programa .gambas
+    ' el indice 1  es el parametro que nos interesa
+    
+    if upper$(lista[0])=upper$("-h") or upper$(lista[0])=upper$("-help") then 
+        'mostrar ayuda...
+        print "------------------------------"
+        print "|   Ayuda de este programa   |"
+        print "------------------------------"
+        quit
+    else
+        procesar(lista[0])
+        'procesamos el archivo que nos pasan de argumento
+    endif
+
+End
+
+public nombreFicheroDATOS as string
+
+
+public sub procesar(nombrefichero as string)
+    dim contenido as string[]
+    dim contenidoSinAyuda as new string[] 'lineas sin ayuda y sin lineas en blanco
+    dim renglon as string=""
+    dim a as integer 'para el for next
+    '¡comprobar que exista el fichero
+    if not exist(nombrefichero) then 
+        print "Error: En el directorio actual, no existe el fichero " & nombrefichero
+        quitar
+    endif
+    
+     nombreFicheroDATOS=nombrefichero
+     
+    'leer todas las lineas
+    contenido=split(file.load(nombrefichero),"\n")
+    
+        'eliminar lineas de comentarios -> las que  empiezan con '
+          'y tambien las que esten vacias (solo retorno de carro)
+    for a=0 to contenido.max
+        reglon=replace(replace(contenido[a]," "),"\t") 'reemplazo espacios o tabuladores en la linea
+        
+        if reglon="" or mid$(reglon,1,1)="'" or mid$(reglon,1,2)="/*"  or mid$(reglon,1,2)="//" then 
+        'no añadir, es una linea de ayuda o vacia.
+        else
+        'añado el contenido para procesarlo
+          contenidoSinAyuda.add(contenido[a])
+        endif
+        
+   next
+   
+     
+     '*************************************************************************
+     'procesar lineas que son comandos: [origen] [destino] o sustitucion #XXXX#
+     '*************************************************************************
+     
+
+    for a=0 to contenidoSinAyuda.max
+        troceado=split(contenidoSinAyuda[a],"\t")
+        
+        if troceado.count>1 then 
+            select case troceado[0]
+                case "[origen]"
+                    activarFinFicheroAnterior()
+                    procesarOrigen(troceado[1])   
+                case "[destino"]
+                    procesarDestino(troceado[1])
+                case else
+                     sustituir=troceado[0]
+                     troceado.delete(0)
+                     restolinea=troceado.join("\t"))
+                     procesarSustitucion(sustituir,restolinea)
+            end select
+        endif
+        
+    next
+    
+    
+    activarFinFicheroAnterior() 
+
+end
+
+
+'..........................
+'    procesar reemplazos
+'..........................
+public sub procesarSustitucion(palabra as string, restolineas as string)
+    ficheroActualSVG=replace$(ficheroActualSVG,palabra,restolineas)
+    print "*"; 'escribo en la consola un "*" para indicar proceso realizado
+end
+
+'..........................
+'    procesar nuevo archivo
+'..........................
+
+public ficheroAbierto as boolean=false 'inicialmente no hay ningun fichero abierto
+public destinoFichero as string=""
+public ContenidoActualSVG as string'contenido de de la plantilla
+public FicheroPlantilla as string 'nombre del fichero de plantilla
+public nombrefinal as string'nombre que tendrá el fichero de destino .svg
+
+public sub  procesarOrigen(nombre as string)   
+'cerrar el anterior y convertir en pdf
+    if ficheroAbierto=true then 
+      activarFinFicheroAnterior() 
+    endif
+    
+      ficheroAbierto=true 'informo a la aplicacion
+      ContenidoActualSVG=file.load(nombre) 'carga la plantilla
+      FicheroPlantilla=file.Basename(nombre) 'solo el nombre sin extensión.
+end
+
+
+public sub procesarDestino(nombre as string)
+    dim nombrefichero as string
+    
+    'comprobar nombre final del fichero
+    if nombre="&nombre" then 
+        nombrefinal= file.basename(FicheroPlantilla) & "_" & file.Basename(nombreFicheroDATOS) & ".svg"
+    else
+        nombrefinal= nombreFicheroDATOS & ".svg"
+    endif
+    
+     ContenidoActualSVG=""
+     ficheroAbierto=false
+    
+end
+
+
+
+
+
+public sub   activarFinFicheroAnterior() 
+  'destino ya esta definida
+  if ficheroAbierto=true then
+        'hay que guardar los datos
+        file.save(nombrefinal ,ContenidoActualSVG)
+        ContenidoActualSVG=""
+        ficheroAbierto=false
+        'generar pdf
+        Exec ["inkscape", nombrefinal, "--export-dpi=" & Str$(300), "--export-png", replace(nombrefinal,".svg",".png")] 
+  
+    endif
+end
