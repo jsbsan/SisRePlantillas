@@ -20,160 +20,184 @@
 
 
 Public Sub Main()
-    'parametros que nos pasen
-    dim lista as new string[]
-    dim contador as intener
-    dim argumento as string
-    dim a as integer
+  'parametros que nos pasen
 
-            
-     For Each argumento In Application.Args
-       'añadimos todos los argumentos a un array de cadenas
-        lista.add(argumento)
-            ' escribo los argumentos:
-            ' Print "Nº "; contador; ": "; argumento
-        contador += 1
-    Next
-    
-    'nota: el indice 0 es el nombre del programa .gambas
-    ' el indice 1  es el parametro que nos interesa
-    
-    if upper$(lista[0])=upper$("-h") or upper$(lista[0])=upper$("-help") then 
-        'mostrar ayuda...
-        print "------------------------------"
-        print "|   Ayuda de este programa   |"
-        print "------------------------------"
-        quit
-    else
-        procesar(lista[0])
-        'procesamos el archivo que nos pasan de argumento
-    endif
+  Dim lista As New String[]
+  Dim contador As Integer
+  Dim argumento As String
+  Dim a As Integer
+
+
+
+
+  For Each argumento In Application.Args
+    'añadimos todos los argumentos a un array de cadenas
+    lista.add(argumento)
+    ' escribo los argumentos:
+    ' Print "Nº "; contador; ": "; argumento
+    contador += 1
+  Next
+
+  'nota: el indice 0 es el nombre del programa .gambas
+  ' el indice 1  es el parametro que nos interesa
+
+  If Upper$(lista[0]) = Upper$("-h") Or Upper$(lista[0]) = Upper$("-help") Then
+    'mostrar ayuda...
+    Print "------------------------------"
+    Print "|   Ayuda de este programa   |"
+    Print "------------------------------"
+    Quit
+  Else
+    procesar(lista[0])
+    'procesamos el archivo que nos pasan de argumento
+  Endif
 
 End
 
-public nombreFicheroDATOS as string
+Public nombreFicheroDATOS As String
 
 
-public sub procesar(nombrefichero as string)
-    dim contenido as string[]
-    dim contenidoSinAyuda as new string[] 'lineas sin ayuda y sin lineas en blanco
-    dim renglon as string=""
-    dim a as integer 'para el for next
-    '¡comprobar que exista el fichero
-    if not exist(nombrefichero) then 
-        print "Error: En el directorio actual, no existe el fichero " & nombrefichero
-        quitar
-    endif
-    
-     nombreFicheroDATOS=nombrefichero
-     
-    'leer todas las lineas
-    contenido=split(file.load(nombrefichero),"\n")
-    
-        'eliminar lineas de comentarios -> las que  empiezan con '
-          'y tambien las que esten vacias (solo retorno de carro)
-    for a=0 to contenido.max
-        reglon=replace(replace(contenido[a]," "),"\t") 'reemplazo espacios o tabuladores en la linea
-        
-        if reglon="" or mid$(reglon,1,1)="'" or mid$(reglon,1,2)="/*"  or mid$(reglon,1,2)="//" then 
-        'no añadir, es una linea de ayuda o vacia.
-        else
-        'añado el contenido para procesarlo
-          contenidoSinAyuda.add(contenido[a])
-        endif
-        
-   next
-   
-     
-     '*************************************************************************
-     'procesar lineas que son comandos: [origen] [destino] o sustitucion #XXXX#
-     '*************************************************************************
-     
+Public Sub procesar(nombrefichero As String)
 
-    for a=0 to contenidoSinAyuda.max
-        troceado=split(contenidoSinAyuda[a],"\t")
-        
-        if troceado.count>1 then 
-            select case troceado[0]
-                case "[origen]"
-                    activarFinFicheroAnterior()
-                    procesarOrigen(troceado[1])   
-                case "[destino"]
-                    procesarDestino(troceado[1])
-                case else
-                     sustituir=troceado[0]
-                     troceado.delete(0)
-                     restolinea=troceado.join("\t"))
-                     procesarSustitucion(sustituir,restolinea)
-            end select
-        endif
-        
-    next
-    
-    
-    activarFinFicheroAnterior() 
+  Dim contenido As String[]
+  Dim contenidoSinAyuda As New String[] 'lineas sin ayuda y sin lineas en blanco
+  Dim renglon As String = ""
+  Dim troceado As String[]
 
-end
+  Dim sustituir As String 'palabra a sustituir de la plantilla, ejemplo #nombre#
+  Dim restolinea As String
+
+
+  Dim a As Integer 'para el for next
+  '¡comprobar que exista el fichero
+  If Not Exist(nombrefichero) Then
+    Print "Error: En el directorio actual, no existe el fichero " & nombrefichero
+    Quit
+  Endif
+
+  nombreFicheroDATOS = nombrefichero
+
+  'leer todas las lineas
+  contenido = Split(file.load(nombrefichero), "\n")
+
+  'eliminar lineas de comentarios -> las que  empiezan con '
+  'y tambien las que esten vacias (solo retorno de carro)
+  For a = 0 To contenido.max
+    renglon = Replace(Replace(contenido[a], " ", ""), "\t", "") 'reemplazo espacios o tabuladores en la linea
+
+    If renglon = "" Or Mid$(renglon, 1, 1) = "'" Or Mid$(renglon, 1, 2) = "/*" Or Mid$(renglon, 1, 2) = "//" Then
+      'no añadir, es una linea de ayuda o vacia.
+    Else
+      'añado el contenido para procesarlo
+      contenidoSinAyuda.add(contenido[a])
+    Endif
+
+  Next
+
+
+  '*************************************************************************
+  'procesar lineas que son comandos: [origen] [destino] o sustitucion #XXXX#
+  '*************************************************************************
+
+
+  For a = 0 To contenidoSinAyuda.max
+    troceado = Split(contenidoSinAyuda[a], "\t")
+
+    If troceado.count > 1 Then
+      Select Case troceado[0]
+        Case "[origen]"
+          activarFinFicheroAnterior()
+          procesarOrigen(troceado[1])
+        Case "[destino]"
+          procesarDestino(troceado[1])
+        Case Else
+          sustituir = troceado[0]
+          troceado.delete(0)
+          restolinea = troceado.join("\t")
+          procesarSustitucion(sustituir, restolinea)
+      End Select
+    Endif
+
+  Next
+
+
+  activarFinFicheroAnterior()
+
+End
+
+'..........................
+'    procesar fichero de datos y añadirlos a la plantilla (nuevo .svg)
+'..........................
+
+
+Public ficheroAbierto As Boolean = False 'inicialmente no hay ningun fichero abierto
+Public destinoFichero As String = ""
+Public ContenidoActualSVG As String 'contenido de de la plantilla
+Public FicheroPlantilla As String 'nombre del fichero de plantilla
+Public nombrefinal As String 'nombre que tendrá el fichero de destino .svg
 
 
 '..........................
 '    procesar reemplazos
 '..........................
-public sub procesarSustitucion(palabra as string, restolineas as string)
-    ficheroActualSVG=replace$(ficheroActualSVG,palabra,restolineas)
-    print "*"; 'escribo en la consola un "*" para indicar proceso realizado
-end
+Public Sub procesarSustitucion(palabra As String, restolineas As String)
+
+  ContenidoActualSVG = Replace$(ContenidoActualSVG, palabra, restolineas)
+  Print "*"; 'escribo en la consola un "*" para indicar proceso realizado
+
+End
+
 
 '..........................
 '    procesar nuevo archivo
 '..........................
 
-public ficheroAbierto as boolean=false 'inicialmente no hay ningun fichero abierto
-public destinoFichero as string=""
-public ContenidoActualSVG as string'contenido de de la plantilla
-public FicheroPlantilla as string 'nombre del fichero de plantilla
-public nombrefinal as string'nombre que tendrá el fichero de destino .svg
 
-public sub  procesarOrigen(nombre as string)   
-'cerrar el anterior y convertir en pdf
-    if ficheroAbierto=true then 
-      activarFinFicheroAnterior() 
-    endif
-    
-      ficheroAbierto=true 'informo a la aplicacion
-      ContenidoActualSVG=file.load(nombre) 'carga la plantilla
-      FicheroPlantilla=file.Basename(nombre) 'solo el nombre sin extensión.
-end
+Public Sub procesarOrigen(nombre As String)
+  'cerrar el anterior y convertir en pdf
+
+  If ficheroAbierto = True Then
+    activarFinFicheroAnterior()
+  Endif
+
+  ficheroAbierto = True 'informo a la aplicacion
+  ContenidoActualSVG = file.load(nombre) 'carga la plantilla
+  FicheroPlantilla = file.Basename(nombre) 'solo el nombre sin extensión.
+
+End
 
 
-public sub procesarDestino(nombre as string)
-    dim nombrefichero as string
-    
-    'comprobar nombre final del fichero
-    if nombre="&nombre" then 
-        nombrefinal= file.basename(FicheroPlantilla) & "_" & file.Basename(nombreFicheroDATOS) & ".svg"
-    else
-        nombrefinal= nombreFicheroDATOS & ".svg"
-    endif
-    
-     ContenidoActualSVG=""
-     ficheroAbierto=false
-    
-end
+Public Sub procesarDestino(nombre As String)
+
+  Dim nombrefichero As String
+
+  'comprobar nombre final del fichero
+  If nombre = "&nombre" Then
+    nombrefinal = file.basename(FicheroPlantilla) & "_" & file.Basename(nombreFicheroDATOS) & ".svg"
+  Else
+    nombrefinal = nombreFicheroDATOS & ".svg"
+  Endif
+
+  ContenidoActualSVG = ""
+  ficheroAbierto = False
+
+End
 
 
 
 
 
-public sub   activarFinFicheroAnterior() 
+Public Sub activarFinFicheroAnterior()
   'destino ya esta definida
-  if ficheroAbierto=true then
-        'hay que guardar los datos
-        file.save(nombrefinal ,ContenidoActualSVG)
-        ContenidoActualSVG=""
-        ficheroAbierto=false
-        'generar pdf
-        Exec ["inkscape", nombrefinal, "--export-dpi=" & Str$(300), "--export-png", replace(nombrefinal,".svg",".png")] 
-  
-    endif
-end
+
+  If ficheroAbierto = True Then
+    'hay que guardar los datos
+    file.save(nombrefinal, ContenidoActualSVG)
+    ContenidoActualSVG = ""
+    ficheroAbierto = False
+    'generar pdf
+    Exec ["inkscape", nombrefinal, "--export-dpi=" & Str$(300), "--export-png", Replace(nombrefinal, ".svg", ".png")]
+
+  Endif
+
+End
