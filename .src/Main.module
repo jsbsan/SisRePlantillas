@@ -124,12 +124,18 @@ Public Sub procesar(nombrefichero As String)
 
 
     If troceado.count > 0 Then
+
+      '********************
+      'analizador de lineas
+      '********************
       Select Case troceado[0]
         Case "[origen]"
           activarFinFicheroAnterior()
           procesarOrigen(troceado[1])
         Case "[destino]"
           procesarDestino(troceado[1])
+        Case "[imagen]"
+          procesarImagen(troceado[1])
         Case Else
           sustituir = troceado[0]
           troceado.delete(0)
@@ -245,13 +251,24 @@ Public Sub procesarDestino(nombre As String)
     nombrefinal = application.path & "/" & nombreFicheroDATOS & ".svg"
   Endif
 
-
-
   Print "Fichero se guardara en:"; nombrefinal
 
   Print ""
 
 End
+
+
+Public Sub procesarImagen(nombre As String)
+  'pendiente de procesar
+  '   Print "-> Sustituir: ", palabra, restolineas
+  ' palabra = Trim(palabra) 'quito espacios en blanco de la palabra a sustituir
+  ' ContenidoActualSVG = Replace$(ContenidoActualSVG, palabra, restolineas)
+  ' Print "*"; 'escribo en la consola un "*" para indicar proceso realizado
+  '
+
+
+End
+
 
 
 
