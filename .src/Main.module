@@ -25,7 +25,6 @@ Public Sub Main()
   Dim lista As New String[]
   Dim contador As Integer
   Dim argumento As String
-  Dim a As Integer
 
 
   For Each argumento In Application.Args
@@ -38,29 +37,30 @@ Public Sub Main()
 
   'nota: el indice 0 es el nombre del programa .gambas
   ' el indice 1  es el parametro que nos interesa
-if lista.count=1 then lista.add("-h")
+  If lista.count = 1 Then lista.add("-h")
 
   If Upper$(lista[1]) = Upper$("-h") Or Upper$(lista[1]) = Upper$("-help") Then
     'mostrar ayuda...
     Print "------------------------------"
     Print "|   Ayuda de este programa   |"
     Print "------------------------------"
-    print "SRP: Sistema de rellenado de plantillas"
-    print ""
-    print "Uso:"
-    PRINT "srp.gambas fichero.dat"
-    print ""
-    print "Ejemplo de archivo de datos .dat:"
-    print "[origen]	../registro_incidencias.svg   <- indicamos donde esta la plantilla que vamos a rellenar"
-    print "[destino]	&nombre <- para definir que el nombre de salida que será la plantillas+fichero.dat "
-    print "#presa# 	Presa de El Pintado <- se sustituye '#presa#' por el texto 'Presa de El Pintado' dentro de la plantilla" 
-    print 
+    Print "SRP: Sistema de rellenado de plantillas"
+    Print ""
+    Print "Uso:"
+    Print "srp.gambas fichero.dat"
+    Print ""
+    Print "Ejemplo de archivo de datos .dat:"
+    Print "[origen]	../registro_incidencias.svg   <- indicamos donde esta la plantilla que vamos a rellenar"
+    Print "[destino]	&nombre <- para definir que el nombre de salida que será la plantillas+fichero.dat "
+    Print "#presa# 	Presa de El Pintado <- se sustituye '#presa#' por el texto 'Presa de El Pintado' dentro de la plantilla"
+    Print
     Quit
   Else
     procesar(lista[1])
     'procesamos el archivo que nos pasan de argumento
   Endif
-print 
+  Print
+
 End
 
 Public nombreFicheroDATOS As String
@@ -80,15 +80,15 @@ Public Sub procesar(nombrefichero As String)
   Dim a As Integer 'para el for next
   '¡comprobar que exista el fichero
   If Not Exist(nombrefichero) Then
-   if not exist( application.path & "/" & nombrefichero) then 
-          Print "Error SRP: apertura del fichero de datos"
-          print "           No existe el fichero de datos indicados (" & nombrefichero & ")"
-          print "           No existe el fichero de datos indicados en este directorio (" & application.path & "/" & nombrefichero & ")"
-          Quit
-    else
-          nombrefichero= application.path &"/"  & nombrefichero
-    endif
-    
+    If Not Exist(application.path & "/" & nombrefichero) Then
+      Print "Error SRP: apertura del fichero de datos"
+      Print "           No existe el fichero de datos indicados (" & nombrefichero & ")"
+      Print "           No existe el fichero de datos indicados en este directorio (" & application.path & "/" & nombrefichero & ")"
+      Quit
+    Else
+      nombrefichero = application.path & "/" & nombrefichero
+    Endif
+
   Endif
 
   nombreFicheroDATOS = nombrefichero
@@ -101,12 +101,12 @@ Public Sub procesar(nombrefichero As String)
   For a = 0 To contenido.max
     renglon = Replace(Replace(contenido[a], " ", ""), "\t", "") 'reemplazo espacios o tabuladores en la linea
 
-    If trim(renglon) = "" Or Mid$(renglon, 1, 1) = "'" Or Mid$(renglon, 1, 2) = "/*" Or Mid$(renglon, 1, 2) = "//"  Then
+    If Trim(renglon) = "" Or Mid$(renglon, 1, 1) = "'" Or Mid$(renglon, 1, 2) = "/*" Or Mid$(renglon, 1, 2) = "//" Then
       'no añadir, es una linea de ayuda o vacia.
     Else
       'añado el contenido para procesarlo
       contenidoSinAyuda.add(contenido[a])
-      PRINT "Sin comentarios (";a;"): ";CONTENIDO[A]
+      Print "Sin comentarios ("; a; "): "; CONTENIDO[A]
     Endif
 
   Next
@@ -120,7 +120,10 @@ Public Sub procesar(nombrefichero As String)
   For a = 0 To contenidoSinAyuda.max
     troceado = Split(contenidoSinAyuda[a], "\t")
 
-    If troceado.count > 1 Then
+    If troceado.count = 0 Then troceado = contenidoSinAyuda[a]
+
+
+    If troceado.count > 0 Then
       Select Case troceado[0]
         Case "[origen]"
           activarFinFicheroAnterior()
@@ -158,8 +161,9 @@ Public nombrefinal As String 'nombre que tendrá el fichero de destino .svg
 '    procesar reemplazos
 '..........................
 Public Sub procesarSustitucion(palabra As String, restolineas As String)
- 
- print "-> Sustituir: ",palabra,restolineas
+
+  Print "-> Sustituir: ", palabra, restolineas
+  palabra = Trim(palabra) 'quito espacios en blanco de la palabra a sustituir
   ContenidoActualSVG = Replace$(ContenidoActualSVG, palabra, restolineas)
   Print "*"; 'escribo en la consola un "*" para indicar proceso realizado
 
@@ -179,50 +183,53 @@ Public Sub procesarOrigen(nombre As String)
   Endif
 
   ficheroAbierto = True 'informo a la aplicacion
-  print "(ProcesandoOrigen) Fichero abierto:",ficheroAbierto
-  
-  nombre=comprobarRutaFichero(nombre)
-  
-try  ContenidoActualSVG = file.load(nombre) 'carga la plantilla
+  Print "(ProcesandoOrigen) Fichero abierto:", ficheroAbierto
 
-if error then 
-print ""
-  print "Error:"
-  print "   Error al intentar leer el archivo de plantilla SVG: " & nombre
-  quit
-endif
+  nombre = comprobarRutaFichero(nombre)
+
+  Try ContenidoActualSVG = file.load(nombre) 'carga la plantilla
+
+  If Error Then
+    Print ""
+    Print "Error:"
+    Print "   Error al intentar leer el archivo de plantilla SVG: " & nombre
+    Quit
+  Endif
 
   FicheroPlantilla = file.Basename(nombre) 'solo el nombre sin extensión.
 
 End
 
-public function comprobarRutaFichero(nombre as string) as string
-  dim  composicion as string[]
-  print ""
-  print ""
-  print "paso 1:";nombre
-  if mid$(nombre,1,2)="./" then nombre= application.path & mid$(nombre,2,len(nombre))
-  print "paso 2:";nombre
-  if mid$(nombre,1,3)="../" then  
-  
-   composicion=split(application.path,"/")
-   composicion.delete(composicion.count-1)
+Public Function comprobarRutaFichero(nombre As String) As String
 
-   
-  nombre= composicion.join("/") &  RTrim$(mid$(nombre,3,len(nombre)))
-    print "paso 3:";nombre
-  endif
-  
-  if not exist(nombre) then 
-     nombre= application.path & "/" & nombre
-     print "paso 4:";nombre
-  endif
-  
-  print "paso 5:";nombre
-  print ""
-  return nombre
-end
-  
+  Dim composicion As String[]
+
+  Print ""
+  Print ""
+  Print "paso 1:"; nombre
+  If Mid$(nombre, 1, 2) = "./" Then nombre = application.path & Mid$(nombre, 2, Len(nombre))
+  Print "paso 2:"; nombre
+  If Mid$(nombre, 1, 3) = "../" Then
+
+    composicion = Split(application.path, "/")
+    composicion.delete(composicion.count - 1)
+
+
+    nombre = composicion.join("/") & RTrim$(Mid$(nombre, 3, Len(nombre)))
+    Print "paso 3:"; nombre
+  Endif
+
+  If Not Exist(nombre) Then
+    nombre = application.path & "/" & nombre
+    Print "paso 4:"; nombre
+  Endif
+
+  Print "paso 5:"; nombre
+  Print ""
+  Return nombre
+
+End
+
 
 
 
@@ -230,10 +237,9 @@ end
 
 Public Sub procesarDestino(nombre As String)
 
-  Dim nombrefichero As String
 
   'comprobar nombre final del fichero
-  If upper$(trim(nombre)) = upper$("&nombre") Then
+  If Upper$(Trim(nombre)) = Upper$("&nombre") Then
     nombrefinal = application.path & "/" & file.Basename(nombreFicheroDATOS) & "_" & file.basename(FicheroPlantilla) & ".svg"
   Else
     nombrefinal = application.path & "/" & nombreFicheroDATOS & ".svg"
@@ -241,9 +247,10 @@ Public Sub procesarDestino(nombre As String)
 
 
 
-print "Fichero se guardara en:"; nombrefinal
-  
-print ""
+  Print "Fichero se guardara en:"; nombrefinal
+
+  Print ""
+
 End
 
 
@@ -252,15 +259,16 @@ End
 
 Public Sub activarFinFicheroAnterior()
   'destino ya esta definida
-  print 
-print "(activarFinFicheroAnterior) Fichero abierto:",ficheroAbierto
+
+  Print
+  Print "(activarFinFicheroAnterior) Fichero abierto:", ficheroAbierto
 
   If ficheroAbierto = True Then
-    print ""
-    print "Fichero Abierto, guardando contenido en: ";nombrefinal
+    Print ""
+    Print "Fichero Abierto, guardando contenido en: "; nombrefinal
     'hay que guardar los datos
     file.save(nombrefinal, ContenidoActualSVG)
-    wait 0.05
+    Wait 0.05
     ContenidoActualSVG = ""
     ficheroAbierto = False
     'generar pdf

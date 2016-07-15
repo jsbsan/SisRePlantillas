@@ -2,9 +2,10 @@
 # Compiled with Gambas 3.8.4
 Title=SiRePla
 Startup=Main
-Version=0.0.2
+Version=0.0.3
 Description="Sistema de Reemplazo de datos en Plantillas"
 Authors="Julio Sanchez Berro"
+Arguments="./i-14-001.txt"
 TabSize=2
 Translate=1
 Language=en_US

@@ -4,6 +4,9 @@ Count=0
 [DebugWindow]
 Count=0
 
+[Executable]
+Path="SisRePlantillas.gambas"
+
 [OpenFile]
 Active=1
 File[1]=".src/Main.module:19.144"
