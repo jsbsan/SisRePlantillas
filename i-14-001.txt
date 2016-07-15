@@ -1,0 +1,155 @@
+'**************************************************'
+'INFORME DE DETECCIÓN DE INCIDENCIAS CONSECUENCIA DEL MANTENIMIENTO PREVENTIVO'
+'**************************************************'
+[origen]	../registro_incidencias.svg
+[destino]	&nombre
+
+#presa# 	Presa de El Pintado
+
+'fecha en numeros 00 00 2000'
+#dia#	
+#mes#
+#anno#
+
+'escribir X'
+#deficiente#
+'escribir X'
+#fueradeservicio#
+
+
+'consecuencias derivadas y conocidas'
+#descripcionincidencia#
+
+'nombre, apellidos y cargo'
+#detectadapor#
+
+'dd-mm-aaaa'
+#fechacomunicacionDF#
+#horacomunicacionDF#
+
+'persona que se le ha comunicado'
+#comunicacionTelefonica#
+
+'X o O'
+#sinocomunicacionTelefonica#
+
+#fdo01#
+#fecha01#
+
+#fdo02#
+#fecha02#
+
+#fdo03#
+#fecha03#
+
+
+'**************************************************'
+'REGISTRO DE INICIO DE ACCIÓN CORRECTORA
+'Formato F2 (Rev.0 /Noviembre 2014)
+'**************************************************'
+
+[origen]	../registro_de_inicio_accion_correctora.svg
+[destino]	&nombre
+#presa# 	Presa de El Pintado
+#origen1#	
+#origen2#	X
+#origen3#
+#mes#	
+#anno#	
+#pagina#	
+#fecharealizacion#	
+
+
+#elemento#	Pilares de Barrandillas de acceso
+
+#fecha_inicio#	Febrero de 2015
+#numero#	I-14-001
+
+#causa01#	Por el paso del tiempo, al estar al intemperie 
+#causa02#	y expuesta a los efectos del clima, el hormigón armado de las cimentaciones
+#causa03#	esta en mal estado.
+
+#analisis01#	No se pueden realizar reparaciones  debido a su estado y se 
+#analisis02#	aconceja su demolición y reconstrucción.
+#analisis03#	
+
+#descripcion01#	Demolición de las cimentaciones y reconstrucción de las mismas.
+#descripcion02#	
+#descripcion03#	
+
+#encargadoejecucion#	Ute
+#plazoejecucion#	Un mes
+
+
+#fdo01#
+#fecha01#
+
+#fdo02#
+#fecha02#
+
+#fdo03#
+#fecha03#
+
+'**************************************************'
+' REGISTRO DE FINAL DE ACCIÓN CORRECTORA
+' Formato F3 (Rev.0 /Noviembre 2014)
+'**************************************************'
+
+[origen]	../registro_de_final_accion_correctora.svg
+[destino]	&nombre
+#presa# 	Presa de El Pintado
+#accioncorrectora#	I-14-001
+#instalacion#	
+#trabajosejecutados#	
+#fechinicio#	
+#fechterminacion#	
+#elemento#	
+#paginas#	
+
+#cant01#	
+#descripcion01#	
+#suministrador01#	
+
+#cant02#	
+#descripcion02#	
+#suministrador02#	
+
+#cant03#	
+#descripcion03#	
+#suministrador03#	
+
+#cant04#	
+#descripcion04#	
+#suministrador04#	
+
+#cant05#	
+#descripcion05#	
+#suministrador05#	
+
+#cant06#	
+#descripcion06#	
+#suministrador06#	
+
+#cant07#	
+#descripcion07#	
+#suministrador07#	
+
+#descripciontrabajos01#	
+#descripciontrabajos02#	
+#descripciontrabajos03#	
+#descripciontrabajos04#	
+#descripciontrabajos05#	
+
+
+#fdo01#
+#fecha01#
+
+#fdo02#
+#fecha02#
+
+#fdo03#
+#fecha03#
+
+#observacionescierre01#	
+#observacionescierre02#	
+#observacionescierre03#	
