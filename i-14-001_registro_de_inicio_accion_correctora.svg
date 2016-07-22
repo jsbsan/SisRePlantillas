@@ -1990,14 +1990,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="512.19565"
-     inkscape:cy="920.1328"
+     inkscape:cx="499.41962"
+     inkscape:cy="444.48195"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
      inkscape:window-width="1440"
-     inkscape:window-height="878"
-     inkscape:window-x="1432"
+     inkscape:window-height="838"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -2008,7 +2008,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -5359,7 +5359,7 @@
          sodipodi:role="line"
          id="tspan7928"
          x="122.14286"
-         y="174.50507"></tspan></text>
+         y="174.50507">X</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5381,7 +5381,7 @@
          sodipodi:role="line"
          id="tspan7928-7-0"
          x="122.48082"
-         y="254.2814"></tspan></text>
+         y="254.2814"></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5392,7 +5392,7 @@
          sodipodi:role="line"
          id="tspan7976"
          x="175"
-         y="190.93362"></tspan></text>
+         y="190.93362">12</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5403,7 +5403,7 @@
          sodipodi:role="line"
          id="tspan7980"
          x="265"
-         y="190.93362"></tspan></text>
+         y="190.93362">2014</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5425,7 +5425,7 @@
          sodipodi:role="line"
          id="tspan7988"
          x="266.42856"
-         y="229.50507">	</tspan></text>
+         y="229.50507">10/12/2014	</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5436,7 +5436,7 @@
          sodipodi:role="line"
          id="tspan7992"
          x="417.85715"
-         y="212.3622">Pilares de Barrandillas de acceso</tspan></text>
+         y="212.3622">Pilares de Barrandillas de acceso Aliviadero </tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5480,7 +5480,7 @@
          sodipodi:role="line"
          id="tspan8008"
          x="100.80981"
-         y="382.71936">y expuesta a los efectos del clima, el hormigón armado de las cimentaciones</tspan></text>
+         y="382.71936">y expuesta a los efectos del clima, el hormigón </tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5491,7 +5491,7 @@
          sodipodi:role="line"
          id="tspan8012"
          x="100.80981"
-         y="404.14792">esta en mal estado.</tspan></text>
+         y="404.14792">de las cimentaciones esta en mal estado.</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5502,7 +5502,7 @@
          sodipodi:role="line"
          id="tspan8016"
          x="110.80981"
-         y="461.64792">No se pueden realizar reparaciones  debido a su estado y se </tspan></text>
+         y="461.64792">No se pueden realizar reparaciones  debido a su estado</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5513,7 +5513,7 @@
          sodipodi:role="line"
          id="tspan8020"
          x="110.80981"
-         y="481.64792">aconceja su demolición y reconstrucción.</tspan></text>
+         y="481.64792">Se aconceja su demolición y su reposición por unas nuevas.</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5535,7 +5535,7 @@
          sodipodi:role="line"
          id="tspan8028"
          x="100.80981"
-         y="594.39307">Demolición de las cimentaciones y reconstrucción de las mismas.</tspan></text>
+         y="594.39307">Demolición de las cimentaciones </tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5546,7 +5546,7 @@
          sodipodi:role="line"
          id="tspan8032"
          x="100.80981"
-         y="617.80902"></tspan></text>
+         y="617.80902">Retirada de escombros y restos de barandillas</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5557,7 +5557,7 @@
          sodipodi:role="line"
          id="tspan8036"
          x="101.56742"
-         y="642.65369"></tspan></text>
+         y="642.65369">a vertedero y punto verde. Instalación de nuevas barandillas.</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5568,7 +5568,7 @@
          sodipodi:role="line"
          id="tspan8040"
          x="308.60159"
-         y="738.70984">Ute</tspan></text>
+         y="738.70984">Construcciones Miso/Sucesores de Castro Sanchez Piñero</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5579,7 +5579,7 @@
          sodipodi:role="line"
          id="tspan8044"
          x="312.13715"
-         y="770.0246">Un mes</tspan></text>
+         y="770.0246">Dos mes</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5590,7 +5590,7 @@
          sodipodi:role="line"
          id="tspan8048"
          x="122.22846"
-         y="909.93073"></tspan></text>
+         y="909.93073">Jesus Soriano</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5601,7 +5601,7 @@
          sodipodi:role="line"
          id="tspan8058"
          x="273.24625"
-         y="912.96112"></tspan></text>
+         y="912.96112">Jose Joaquin Palacios</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5612,7 +5612,7 @@
          sodipodi:role="line"
          id="tspan8060"
          x="469.72092"
-         y="911.44598"></tspan></text>
+         y="911.44598"></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -5623,7 +5623,7 @@
          sodipodi:role="line"
          id="tspan8064"
          x="132.85715"
-         y="924.50507"></tspan></text>
+         y="924.50507">Febrero de 2015</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif, Normal';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;"
@@ -5632,7 +5632,7 @@
        id="text8062-5"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan8112"></tspan></text>
+         id="tspan8112">Febrero de 2015</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif, Normal';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;"
@@ -5641,6 +5641,28 @@
        id="text8062-5-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan8114"></tspan></text>
+         id="tspan8114"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="416.18286"
+       y="240.19955"
+       id="text5451"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5453"
+         x="416.18286"
+         y="240.19955">ALI-ALI-ACC.01 y ALI-ALI-ACC.02</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="100.80981"
+       y="668.96503"
+       id="text8034-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8036-8"
+         x="100.80981"
+         y="668.96503">#descripcion04#</tspan></text>
   </g>
 </svg>
