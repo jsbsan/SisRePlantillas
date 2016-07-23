@@ -46,7 +46,8 @@ Public Sub Main()
     Print "|   Ayuda de este programa   |"
     Print "------------------------------"
     Print "SRP: Sistema de rellenado de plantillas"
-    Print ""
+    Print "Version: " & Application.Version
+
     Print "Uso:"
     Print "srp.gambas fichero.dat"
     Print ""

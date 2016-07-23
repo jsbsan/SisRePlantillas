@@ -2,7 +2,7 @@
 # Compiled with Gambas 3.8.4
 Title=SisRePlantillas
 Startup=Main
-Version=0.0.8
+Version=0.0.10
 Description="Sistema de Reemplazo de datos en Plantillas"
 Authors="Julio Sanchez Berro"
 Arguments="./i-14-001.txt"

@@ -1,6 +1,3 @@
-[Bookmarks]
-Main=[]
-
 [Breakpoints]
 Count=0
 
@@ -16,7 +13,7 @@ Path="SisRePlantillas.gambas"
 
 [OpenFile]
 Active=1
-File[1]=".src/Main.module:0.268"
+File[1]=".src/Main.module:0.49"
 Count=1
 
 [Watches]
