@@ -1,15 +1,22 @@
+[Bookmarks]
+Main=[]
+
 [Breakpoints]
 Count=0
 
 [DebugWindow]
-Count=0
+Count=1
+DebugWindow[1]="composicion"
+
+[DebugWindow/composicion]
+Geometry=[-1,37,192,240]
 
 [Executable]
 Path="SisRePlantillas.gambas"
 
 [OpenFile]
 Active=1
-File[1]=".src/Main.module:16.143"
+File[1]=".src/Main.module:0.268"
 Count=1
 
 [Watches]
