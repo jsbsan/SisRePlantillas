@@ -76,7 +76,7 @@
 #descripcionincidencia#	Mal estado de las cimentaciones de barandillas en zona del aliviadero
 	
 'nombre, apellidos y cargo'	
-#detectadapor#	Jesus Soriano
+#detectadapor#	Jesus Soriano, Encargado de la Ute Presas Sevillas
 	
 'dd-mm-aaaa'	
 #fechacomunicacionDF#	10/12/2014
@@ -115,15 +115,16 @@
 #fecharealizacion#	10/12/2014
 	
 	
-#elemento#	Pilares de Barrandillas de acceso Aliviadero 
+#elemento#	Pilares de Barrandillas
+#elemento2#	de acceso Aliviadero 
 #codigo#	ALI-ALI-ACC.01 y ALI-ALI-ACC.02
 	
 #fecha_inicio#	Febrero de 2015
 #numero#	I-14-001
 	
-#causa01#	Por el paso del tiempo, al estar al intemperie 
-#causa02#	y expuesta a los efectos del clima, el hormigón 
-#causa03#	de las cimentaciones esta en mal estado.
+#causa01#	Por el paso del tiempo, al estar al intemperie  y expuestas a los efectos del clima,
+#causa02#	el hormigón de las cimentaciones y las propias barandillas están en mal estado.
+#causa03#	
 	
 #analisis01#	No se pueden realizar reparaciones  debido a su estado
 #analisis02#	Se aconceja su demolición y su reposición por unas nuevas.
@@ -156,11 +157,12 @@
 [destino]	&nombre
 #presa# 	Presa de El Pintado
 #accioncorrectora#	I-14-001
-#instalacion#	Aliviadero [ ALI-ALI-ACC.01 Y ALI-ALI-ACC.02]
+#instalacion#	Aliviadero 
 #trabajosejecutados#	Construcciones Miso
 #fechinicio#	02/02/2015
 #fechterminacion#	28/02/2015
-#elemento#	Pilares de Barrandillas de acceso Aliviadero 
+#elemento#	Pilares de Barrandillas
+#elemento2#	de acceso a Aliviadero
 #codigo#	ALI-ALI-ACC.01 y ALI-ALI-ACC.02
 #paginas#	
 	
@@ -173,7 +175,7 @@
 #suministrador02#	Const. Miso
 	
 #cant03#	5 Ud.
-#descripcion03#	Cuba Escombros
+#descripcion03#	Ud. Cuba Escombros
 #suministrador03#	Const. Miso
 	
 #cant04#	8 H.
@@ -192,11 +194,12 @@
 #descripcion07#	
 #suministrador07#	
 	
-#descripciontrabajos001#	21 uds de demolicion de pilares existentes de barandillas 
-#descripciontrabajos002#	de tramo derecho y izquierdo del aliviadero de la presa , 
-#descripciontrabajos003#	incluso carga de escombros a vertedero y tubos a punto verde . 
-#descripciontrabajos004#	
-#descripciontrabajos005#	
+'descripcion y detalles de los trabajos a realizar	
+#descripcion001#	21 uds de demolicion de pilares existentes de barandillas de tramo derecho
+#descripcion002#	e izquierdo del aliviadero de la presa, incluso carga de escombros a vertedero 
+#descripcion003#	y tubos a punto verde. 
+#descripcion004#	
+#descripcion005#	
 	
 	
 #fdo01#	Jesus Soriano

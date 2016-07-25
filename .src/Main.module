@@ -26,7 +26,7 @@ Public Sub Main()
   Dim contador As Integer
   Dim argumento As String
 
-  Print pwd()
+  Print "Directorio de trabajo: ";pwd()
 
   For Each argumento In Application.Args
     'añadimos todos los argumentos a un array de cadenas

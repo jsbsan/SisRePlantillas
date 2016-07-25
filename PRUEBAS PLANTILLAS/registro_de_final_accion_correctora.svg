@@ -2477,15 +2477,15 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.8101934"
      inkscape:cx="400.64346"
-     inkscape:cy="718.75127"
+     inkscape:cy="762.94544"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
-     inkscape:window-width="1355"
-     inkscape:window-height="741"
-     inkscape:window-x="200"
-     inkscape:window-y="97"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1440"
+     inkscape:window-height="838"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -6493,25 +6493,25 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="525.03772"
-       y="232.48177"
+       x="530.00958"
+       y="225.30022"
        id="text8723"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan8725"
-         x="528.31616"
-         y="232.48177">#elemento#	</tspan></text>
+         x="533.28796"
+         y="225.30022">#elemento#	</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="576.18152"
-       y="262.94376"
+       x="569.55237"
+       y="264.60104"
        id="text8727"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan8729"
-         x="576.18152"
-         y="262.94376">#paginas#</tspan></text>
+         x="569.55237"
+         y="264.60104">#paginas#</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -6883,5 +6883,27 @@
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan9083">#fecha03#</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="528.12036"
+       y="252.12976"
+       id="text8723-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8725-4"
+         x="531.3988"
+         y="252.12976">#codigo#	</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="529.77765"
+       y="239.42393"
+       id="text8723-85"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8725-6"
+         x="533.05603"
+         y="239.42393">#elemento2#	</tspan></text>
   </g>
 </svg>
