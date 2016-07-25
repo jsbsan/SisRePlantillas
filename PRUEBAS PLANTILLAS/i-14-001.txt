@@ -17,10 +17,10 @@
 #noanomalia#	
 	
 	
-'si se han marcado las casillas primera y segunda del apartado atenrior: fecha DD MM YY	
+' 3 si se han marcado las casillas primera y segunda del apartado atenrior: fecha DD MM YY	
 #diaDE#	10
 #mesDE#	12
-#annoDE#	2014
+#annoDE#	14
 #horaDE#	10
 #minDE#	30
 	
@@ -132,6 +132,7 @@
 #descripcion01#	Demolición de las cimentaciones 
 #descripcion02#	Retirada de escombros y restos de barandillas
 #descripcion03#	a vertedero y punto verde. Instalación de nuevas barandillas.
+#descripcion04#	
 	
 #encargadoejecucion#	Construcciones Miso/Sucesores de Castro Sanchez Piñero
 #plazoejecucion#	Dos mes
@@ -176,7 +177,7 @@
 #suministrador03#	Const. Miso
 	
 #cant04#	8 H.
-#descripcion04#	RetroExcavadora
+#descripcion04#	H. RetroExcavadora
 #suministrador04#	Const. Miso
 	
 #cant05#	
@@ -191,11 +192,11 @@
 #descripcion07#	
 #suministrador07#	
 	
-#descripciontrabajos01#	21 UDS DE DEMOLICION DE PILARES EXISTENTES DE BARANDILLAS 
-#descripciontrabajos02#	DE TRAMO DERECHO Y IZQUIERDO DEL ALIVIADERO DE LA PRESA , 
-#descripciontrabajos03#	INCLUSO CARGA DE ESCOMBROS A VERTEDERO Y TUBOS A PUNTO VERDE . 
-#descripciontrabajos04#	
-#descripciontrabajos05#	
+#descripciontrabajos001#	21 uds de demolicion de pilares existentes de barandillas 
+#descripciontrabajos002#	de tramo derecho y izquierdo del aliviadero de la presa , 
+#descripciontrabajos003#	incluso carga de escombros a vertedero y tubos a punto verde . 
+#descripciontrabajos004#	
+#descripciontrabajos005#	
 	
 	
 #fdo01#	Jesus Soriano

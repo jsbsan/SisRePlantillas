@@ -1476,15 +1476,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="400.30098"
-     inkscape:cy="482.07356"
+     inkscape:zoom="2.8"
+     inkscape:cx="265.51808"
+     inkscape:cy="226.35556"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
      inkscape:window-width="1440"
-     inkscape:window-height="878"
-     inkscape:window-x="1432"
+     inkscape:window-height="838"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -1495,7 +1495,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -4129,15 +4129,15 @@
      inkscape:label="Layer 2">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="553.5636"
-       y="146.25537"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;text-anchor:middle;text-align:center;"
+       x="594.05463"
+       y="141.20461"
        id="text7026"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan7028"
-         x="553.5636"
-         y="146.25537">#presa#</tspan></text>
+         x="567.70575"
+         y="141.20461">#presa#</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -4222,25 +4222,25 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="127.27922"
-       y="629.10828"
+       x="123.35065"
+       y="626.60828"
        id="text7060"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan7062"
-         x="127.27922"
-         y="629.10828">#fechacomunicacionDF#</tspan></text>
+         x="123.35065"
+         y="626.60828">#fechacomunicacionDF#</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="293.95438"
-       y="627.59308"
+       x="285.02582"
+       y="625.4502"
        id="text7064"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan7066"
-         x="293.95438"
-         y="627.59308">#horacomunicacionDF#</tspan></text>
+         x="285.02582"
+         y="625.4502">#horacomunicacionDF#</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
