@@ -37,15 +37,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.56"
-     inkscape:cx="489.71467"
-     inkscape:cy="604.50546"
+     inkscape:cx="132.10866"
+     inkscape:cy="417.34001"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
-     inkscape:window-width="1128"
-     inkscape:window-height="822"
-     inkscape:window-x="125"
-     inkscape:window-y="0"
+     inkscape:window-width="1440"
+     inkscape:window-height="838"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -200,25 +200,25 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="496.77734"
-       y="467.74918"
+       x="495.99609"
+       y="468.53043"
        id="text4341-1-5-5"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4403"
-         x="496.77734"
-         y="467.74918">#horaDE#</tspan></text>
+         x="495.99609"
+         y="468.53043">#mesDE#</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="476.29395"
-       y="467.95364"
+       x="472.3877"
+       y="468.34427"
        id="text4341-1-5-5-8"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4423"
-         x="476.29395"
-         y="467.95364">#diaDE#</tspan></text>
+         x="472.3877"
+         y="468.34427">#diaDE#</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -323,7 +323,7 @@
          y="635.14111"
          x="119.28711"
          sodipodi:role="line"
-         id="tspan4555-73">#saih#</tspan></text>
+         id="tspan4555-73">#nocomunicado#</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
