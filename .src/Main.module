@@ -10,14 +10,16 @@
 '3 ordenes:
 'origen -> indica en la siguiente linea la plantilla.svg que debe de leer
 'destino -> indica donde va a guardar y con que nombre (por defecto nombre de plantilla + _NOMBRE.svg)
-'subst #etiqueta#
+' #etiqueta#
 'sustituye el texto "#etiqueta#" por el texto indicado a continuacion
 
-'una vez ternimando la lectura del archivo, crea los .pdf y los une, dejando los .svg por si se quiere editar.
+
 
 'nota:
 'tambien es posible definir varios origen y destino, para trabajar con varias plantillas
 
+
+Public imagenEnProceso As Boolean = False 'bandera que controla si hay una imagen activada  e insertando datos en ella (ancho,largo,x,y,etc..).
 
 Public Sub Main()
   'parametros que nos pasen
@@ -26,7 +28,7 @@ Public Sub Main()
   Dim contador As Integer
   Dim argumento As String
 
-  Print "Directorio de trabajo: ";pwd()
+  Print "Directorio de trabajo: "; pwd()
 
   For Each argumento In Application.Args
     'añadimos todos los argumentos a un array de cadenas
@@ -47,14 +49,37 @@ Public Sub Main()
     Print "------------------------------"
     Print "SRP: Sistema de rellenado de plantillas"
     Print "Version: " & Application.Version
-
-    Print "Uso:"
-    Print "srp.gambas fichero.dat"
+    Print "Realizado en Gambas3.9"
     Print ""
+    Print "****************"
+    Print "Uso:"
+    Print "****************"
+    Print "srp.gambas fichero .dat"
+    Print ""
+    Print "****************"
     Print "Ejemplo de archivo de datos .dat:"
+    Print "****************"
     Print "[origen]	../registro_incidencias.svg   <- indicamos donde esta la plantilla que vamos a rellenar"
     Print "[destino]	&nombre <- para definir que el nombre de salida que será la plantillas+fichero.dat "
     Print "#presa# 	Presa de El Pintado <- se sustituye '#presa#' por el texto 'Presa de El Pintado' dentro de la plantilla"
+    Print ""
+    Print "[imagen] ../graficoejemplo.png <- indicamos origen de la imagen a insertar"
+    Print "[x] 190 <- indicamos coordenada X de la esquina inferior donde insertamos el grafico (eje X)"
+    Print "[y] 356 <- indicamos coordenada Y de la esquina inferior donde insertamos el grafico (eje Y)"
+    Print "[fw] 420 <- forzamos ancho (width) del grafico, el alto se ajustará automaticamente para mantener la relacion original que tenga la imagen"
+    Print ""
+    Print "****************"
+    Print "Comentarios"
+    Print "****************"
+    Print "Poner comentarios en el archivo de datos:"
+    Print "Todas las lineas que empiecen por: ', /* , // o *"
+    Print "son consideradas como comentarios para ayuda a la persona que este rellenando los datos, y no serán analizadas por el programa."
+
+
+    Print ""
+    Print "nota:"
+    Print " También es posible definir varios [origen] y [destino], para trabajar con varias plantillas, en un mismo fichero de datos"
+
     Print
     Quit
   Else
@@ -83,7 +108,7 @@ Public Sub procesar(nombrefichero As String)
   '¡comprobar que exista el fichero
   If Not Exist(nombrefichero) Then
     If Not Exist(pwd() & "/" & nombrefichero) Then
-      Print "Error SRP: apertura del fichero de datos"
+      Print "Error srp: apertura del fichero de datos"
       Print "           No existe el fichero de datos indicados (" & nombrefichero & ")"
       Print "           No existe el fichero de datos indicados en este directorio (" & pwd() & "/" & nombrefichero & ")"
       Quit
@@ -96,14 +121,24 @@ Public Sub procesar(nombrefichero As String)
   nombreFicheroDATOS = nombrefichero
 
   'leer todas las lineas
+
+  If file.load(nombrefichero) = "" Then
+    Print "Error: ¡¡¡ El fichero esta vacio !!!"
+    Quit
+  Endif
+
   contenido = Split(file.load(nombrefichero), "\n")
 
-  'eliminar lineas de comentarios -> las que  empiezan con '
+
+
+  '*******************************************************************
+  'eliminar lineas de comentarios -> las lineas que  empiezan con los siguientes caracteres:' /* // *
   'y tambien las que esten vacias (solo retorno de carro)
+  ¡*****************************************************************
   For a = 0 To contenido.max
     renglon = Replace(Replace(contenido[a], " ", ""), "\t", "") 'reemplazo espacios o tabuladores en la linea
 
-    If Trim(renglon) = "" Or Mid$(renglon, 1, 1) = "'" Or Mid$(renglon, 1, 2) = "/*" Or Mid$(renglon, 1, 2) = "//" Then
+    If Trim(renglon) = "" Or Mid$(renglon, 1, 1) = "'" Or Mid$(renglon, 1, 2) = "/*" Or Mid$(renglon, 1, 2) = "//" Or Mid$(renglon, 1, 1) = "*" Then
       'no añadir, es una linea de ayuda o vacia.
     Else
       'añado el contenido para procesarlo
@@ -138,6 +173,14 @@ Public Sub procesar(nombrefichero As String)
           procesarDestino(troceado[1])
         Case "[imagen]"
           procesarImagen(troceado[1])
+        Case "[x]"
+          'TODO: pendiente sustituir coordenada X
+        Case "[y]"
+          'TODO: pendiente sustituir coordenada Y
+
+        Case "[fw]"
+          'TODO: pendiente sustituir forzar ancho  fw"
+
         Case Else
           sustituir = troceado[0]
           troceado.delete(0)
@@ -261,15 +304,48 @@ End
 
 
 Public Sub procesarImagen(nombre As String)
-  'pendiente de procesar
-  '   Print "-> Sustituir: ", palabra, restolineas
-  ' palabra = Trim(palabra) 'quito espacios en blanco de la palabra a sustituir
-  ' ContenidoActualSVG = Replace$(ContenidoActualSVG, palabra, restolineas)
-  ' Print "*"; 'escribo en la consola un "*" para indicar proceso realizado
-  '
+
+  Dim nombreficheroimagen As Stirng
+
+  'para que reconozca nombres con "./nombre" o/y "../nombre"
+  nombreficheroimagen = comprobarRutaFichero(nombre)
+
+  If Not Exist(nombreficheroimagen) Then
+    Print "Error: el fichero imagen no lo encuentro ..."
+    Print "       " & nombreficheroimagen
+    Quit
+  Endif
+
+
+  'si hay una imagen en proceso hay que cerrarlo (para admitir varias imagenes
+  If imagenEnProceso = True Then
+    cerrarImagen()
+  Endif
+
+  imagenEnProceso = True
+
+
+  ''TODO: queda insertar codigo de imagen svg, y nombre de archivo
+  'crear bloque de codigo svg para insertar imagen
+  SvgImagen = File.Load("codigoimagen.svg") '<- crear este archivo
+  'poner nombre de la imagen, para que sea incrustada.
+  svgImagen = Replace$(SvgImagen, "fichero", nombreficheroimagen)
+  'en los siguientes lineas se definiran las coordenada
+  'en el archivos de datos..
+
+  '------------------------------------------
+  'solamente cuando se cree otro archivo de imagen o sea un nuevo origen de plantilla se sustituirarn los datos de la imagen, x, y, fw
+  '------------------------------------------
 
 End
 
+Public Sub cerrarImagen()
+  'en esta subrutina, cerramos los datos de la imagen, y lo añadimos
+  'al final del fichero .svg
+
+  ''TODO: terminar por reemplazar y guardar la zona de imagen2
+
+End
 
 
 
@@ -283,6 +359,9 @@ Public Sub activarFinFicheroAnterior()
 
   If ficheroAbierto = True Then
     Print ""
+
+    ''TODO: terminar por reemplazar y guardar la zona de imagen
+
     Print "Fichero Abierto, guardando contenido en: "; nombrefinal
     'hay que guardar los datos
     file.save(nombrefinal, ContenidoActualSVG)
@@ -290,7 +369,8 @@ Public Sub activarFinFicheroAnterior()
     ContenidoActualSVG = ""
     ficheroAbierto = False
     'generar pdf
-    Exec ["inkscape", nombrefinal, "--export-dpi=" & Str$(300), "--export-png", Replace(nombrefinal, ".svg", ".png")]
+    Exec ["inkscape", nombrefinal, "--export-dpi=" & Str$(300), "--export-png", Replace(nombrefinal, ".svg", ".png", ">>log_inskape.txt")]
+
   Endif
 
 End
@@ -298,6 +378,17 @@ End
 Public Function pwd() As String ''retorna la ruta actual donde se esta ejecutando el programa
 
   Dim ruta As String
+
+  Shell "pwd" To ruta
+  Return Replace(ruta, "\n", "")
+
+End
+
+
+
+
+
+Dim ruta As String
 
   Shell "pwd" To ruta
   Return Replace(ruta, "\n", "")
