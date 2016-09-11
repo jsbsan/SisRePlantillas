@@ -1,0 +1,276 @@
+'**************************************************'	
+'INFORME DE INSPECCION	i-14-01
+'**************************************************'	
+[origen]	../01registro_inspeccion.svg
+[destino]	&nombre
+	
+#presa# 	Presa de El Pintado
+	
+'fecha en numeros 00 00 2000'	
+#dia#	24
+#mes#	6
+#anno#	2014
+	
+'Resultado de la inspección: escribir X	
+#umbral#	
+#anomalia#	X
+#noanomalia#	
+	
+	
+' 3 si se han marcado las casillas primera y segunda del apartado atenrior: fecha DD MM YY	
+#diaDE#	
+#mesDE#	
+#annoDE#	
+#horaDE#	
+#minDE#	
+	
+'4. se ha comunicado telefonica mente el resultado anterior (solo si se ha detectado una anomalia o superado algun umbral de emergencia)	
+#ing#	
+#DE#	X
+#saih#	
+#nocomunicado#	
+	
+'dd-mm-aaaa a visado al Ing Tec'	
+#diaIT#	
+#mesIT#	
+#annoIT#	
+#horaIT#	
+#minIT#	
+	
+'5 se adjunta	
+#regInspeccion#	X
+#partesInspeccion#	X
+#descAnomalia#	
+#descUmbrales#	
+	
+	
+	
+#Realizado#	
+#fdo01#	
+#fecha01#	24/06/2014
+	
+#Conocido#	
+#fdo02#	
+#fecha02#	24/06/2014
+	
+'**************************************************'	
+'INFORME DE DETECCIÓN DE INCIDENCIAS CONSECUENCIA DEL MANTENIMIENTO PREVENTIVO'	
+'**************************************************'	
+[origen]	../03registro_incidencias.svg
+[destino]	&nombre
+	
+#presa# 	Presa de El Pintado
+	
+'fecha en numeros 00 00 2000'	
+#dia#	24
+#mes#	6
+#anno#	2014
+	
+'escribir X'	
+#deficiente#	X
+'escribir X'	
+#fueradeservicio#	
+	
+	
+'consecuencias derivadas y conocidas'	
+#descripcionincidencia#	Acumulación de agua en las vigas de las compuertas
+	
+'nombre, apellidos y cargo'	
+#detectadapor#	Jesus Soriano, Encargado de la Ute Presas Sevillas
+	
+'dd-mm-aaaa'	
+#fechacomunicacionDF#	24/06/2014
+#horacomunicacionDF#	12:00
+	
+'persona que se le ha comunicado'	
+#comunicacionTelefonica#	
+	
+'X o O'	
+#sinocomunicacionTelefonica#	
+	
+#fdo01#	
+#fecha01#	24/06/2014
+	
+#fdo02#	
+#fecha02#	24/06/2014
+	
+#fdo03#	
+#fecha03#	
+	
+	
+'**************************************************'	
+'REGISTRO DE INICIO DE ACCIÓN CORRECTORA	
+'Formato F2 (Rev.0 /Noviembre 2014)	
+'**************************************************'	
+	
+[origen]	../04registro_de_inicio_accion_correctora.svg
+[destino]	&nombre
+#presa# 	Presa de El Pintado
+#origen1#	X
+#origen2#	X
+#origen3#	
+#mes#	6
+#anno#	2014
+#pagina#	
+#fecharealizacion#	24/06/2014
+	
+	
+#elemento#	Vigas de compuertas
+#elemento2#	Taintor nº1,2,3,4
+#codigo#	 ALI-ALI-CAL [01,02,03,04] 
+	
+#fecha_inicio#	17/03/2015
+#numero#	i-14-01
+	
+#causa01#	Debido a la forma de la viga, acumula agua en su parte superior
+#causa02#	
+#causa03#	
+	
+#analisis01#	Para evitar oxidación,  que a la larga se va a producir,
+#analisis02#	se debe permitir que se drene el agua que se acumule.
+#analisis03#	
+	
+#descripcion01#	Se realizaran taladros para que pueda desaguar el agua y evitar la acumulacion de  
+#descripcion02#	suciedad. Repaso de la pintura de las vigas.
+#descripcion03#	
+#descripcion04#	
+	
+#encargadoejecucion#	S.C.S.P.
+#plazoejecucion#	una semana
+	
+	
+#fdo01#	Jesus Soriano
+#fecha01#	Marzo de 2015
+	
+#fdo02#	Jose Joaquin Palacios
+#fecha02#	Marzo de 2015
+	
+#fdo03#	
+#fecha03#	
+	
+'**************************************************'	
+' REGISTRO DE FINAL DE ACCIÓN CORRECTORA	
+' Formato F3 (Rev.0 /Noviembre 2014)	
+'**************************************************'	
+	
+[origen]	../05registro_de_final_accion_correctora.svg
+[destino]	&nombre
+#presa# 	Presa de El Pintado
+#accioncorrectora#	i-14-01
+#instalacion#	COMPUERTAS TAINTOR (1,2,3 Y 4)
+#trabajosejecutados#	S.C.S.P.
+#fechinicio#	17/03/2015
+#fechterminacion#	21/03/2015
+	
+#elemento#	VIGAS DE 
+#elemento2#	COMPUERTAS TAINTOR
+#codigo#	 ALI-ALI-CAL.[01.02.03.04] 
+#paginas#	
+	
+#cant01#	 1 ud.
+#descripcion01#	[3,19] Ud de grupo electrogeno de 10 KVAS
+#suministrador01#	    S. C. S. P. 
+	
+#cant02#	60 ud
+#descripcion02#	Ud de taladro perforante.
+#suministrador02#	    S. C. S. P. 
+	
+#cant03#	8 M2
+#descripcion03#	[2166]  PINT. IMPERMEABLE ANTIHUMEDAD DOS MANOS
+#suministrador03#	    S. C. S. P. 
+	
+#cant04#	
+#descripcion04#	
+#suministrador04#	
+	
+#cant05#	
+#descripcion05#	
+#suministrador05#	
+	
+#cant06#	
+#descripcion06#	
+#suministrador06#	
+	
+#cant07#	
+#descripcion07#	
+#suministrador07#	
+	
+'descripcion y detalles de los trabajos a realizar	
+#descripcion001#	Realización de taladros, para permitr drenar el agua y repaso
+#descripcion002#	de pintura de las vigas.
+#descripcion003#	
+#descripcion004#	
+#descripcion005#	
+	
+	
+#fdo01#	Jesus Soriano
+#fecha01#	Marzo de 2015
+	
+#fdo02#	Jose Joaquin Palacios
+#fecha02#	Marzo de 2015
+	
+#fdo03#	
+#fecha03#	
+	
+#observacionescierre01#	S.C.S.P: PROVEEDOR SUCESORES DE CASTO SANCHEZ PINERO 
+#observacionescierre02#	
+#observacionescierre03#	
+	
+	
+	
+'**************************************************'	
+ REGISTRO DE ANOMALIAS DETECTADAS EN LA INSPECCION PROGRAMADA	
+' Formato F3 (Rev.0 /Noviembre 2014)	
+'**************************************************'	
+[origen]	../02InfAnoDetEnLaInspeccionProgramada.svg
+[destino]	&nombre
+#presa# 	Presa de El Pintado
+	
+#dia#	24
+#mes#	6
+#ano#	2014
+	
+#anomalia01#	i-14-01
+#descripcion0101#	Acumulación de agua en las vigas de las compuertas
+#descripcion0102#	
+#descripcion0103#	
+#descripcion0104#	
+	
+#anomalia02#	
+#descripcion0201#	
+#descripcion0202#	
+#descripcion0203#	
+#descripcion0204#	
+	
+#anomalia03#	
+#descripcion0301#	
+#descripcion0302#	
+#descripcion0303#	
+#descripcion0304#	
+	
+#anomalia04#	
+#descripcion0401#	
+#descripcion0402#	
+#descripcion0403#	
+#descripcion0404#	
+	
+	
+#fdo01#	Jesus Soriano
+#fechafdo01#	24/06/2014
+	
+#fdo02#	Jose Joaquin Palacios
+#fechafdo02#	24/06/2014
+	
+	
+'**************************************************'	
+INFORME REPORTAJE FOTOGRAFICO	
+'**************************************************'	
+[origen]	../06repfoto.svg
+[destino]	&nombre
+	
+#presa# 	Presa de El Pintado
+#fecha#	Marzo de 2015
+#numero#	i-14-01
+#observaciones01#	
+#observaciones02#	
+#observaciones03#	
