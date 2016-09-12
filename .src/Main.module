@@ -197,7 +197,7 @@ Public Sub procesar(nombrefichero As String)
           procesarImagen(troceado[1])
         Case "[x]"
           'FIXME:  pendiente sustituir coordenada X
-          sustituirXYFW(troceado[1], "y")
+          sustituirXYFW(troceado[1], "x")
         Case "[y]"
           'FIXME:  pendiente sustituir coordenada Y
           sustituirXYFW(troceado[1], "y")
