@@ -19,7 +19,27 @@
 'tambien es posible definir varios origen y destino, para trabajar con varias plantillas
 
 
+'..........................
+'    procesar fichero de datos y añadirlos a la plantilla (nuevo .svg)
+'..........................
+
+
+Public ficheroAbierto As Boolean = False 'inicialmente no hay ningun fichero abierto
+Public destinoFichero As String = ""
+Public ContenidoActualSVG As String 'contenido de de la plantilla
+Public FicheroPlantilla As String 'nombre del fichero de plantilla
+Public nombrefinal As String 'nombre que tendrá el fichero de destino .svg
+'***************************************************
+'         Variables para el proceso de imagenes
+'***************************************************
+
+
 Public imagenEnProceso As Boolean = False 'bandera que controla si hay una imagen activada  e insertando datos en ella (ancho,largo,x,y,etc..).
+
+Public contadorimagen As Integer = 0 'contador de imagenes que existen en los documentos.
+
+Public svgImagen As String 'codigo que contiene datos de una imagen
+
 
 Public Sub Main()
   'parametros que nos pasen
@@ -54,7 +74,7 @@ Public Sub Main()
     Print "****************"
     Print "Uso:"
     Print "****************"
-    Print "srp.gambas fichero .dat"
+    Print "srp.gambas fichero.dat"
     Print ""
     Print "****************"
     Print "Ejemplo de archivo de datos .dat:"
@@ -66,7 +86,8 @@ Public Sub Main()
     Print "[imagen] ../graficoejemplo.png <- indicamos origen de la imagen a insertar"
     Print "[x] 190 <- indicamos coordenada X de la esquina inferior donde insertamos el grafico (eje X)"
     Print "[y] 356 <- indicamos coordenada Y de la esquina inferior donde insertamos el grafico (eje Y)"
-    Print "[fw] 420 <- forzamos ancho (width) del grafico, el alto se ajustará automaticamente para mantener la relacion original que tenga la imagen"
+    Print "[fw] 420 <- ancho (width) del grafico, en este caso 420 px"
+    Print "[fh] 320 <- alto (height) del grafico, en este caso 320 px"
     Print ""
     Print "****************"
     Print "Comentarios"
@@ -114,6 +135,7 @@ Public Sub procesar(nombrefichero As String)
       Quit
     Else
       nombrefichero = pwd() & "/" & nombrefichero
+      Print "Nombre del fichero de datos es:...."; nombrefichero
     Endif
 
   Endif
@@ -134,7 +156,7 @@ Public Sub procesar(nombrefichero As String)
   '*******************************************************************
   'eliminar lineas de comentarios -> las lineas que  empiezan con los siguientes caracteres:' /* // *
   'y tambien las que esten vacias (solo retorno de carro)
-  ¡*****************************************************************
+  '*****************************************************************
   For a = 0 To contenido.max
     renglon = Replace(Replace(contenido[a], " ", ""), "\t", "") 'reemplazo espacios o tabuladores en la linea
 
@@ -174,13 +196,17 @@ Public Sub procesar(nombrefichero As String)
         Case "[imagen]"
           procesarImagen(troceado[1])
         Case "[x]"
-          'TODO: pendiente sustituir coordenada X
+          'FIXME:  pendiente sustituir coordenada X
+          sustituirXYFW(troceado[1], "y")
         Case "[y]"
-          'TODO: pendiente sustituir coordenada Y
-
+          'FIXME:  pendiente sustituir coordenada Y
+          sustituirXYFW(troceado[1], "y")
         Case "[fw]"
-          'TODO: pendiente sustituir forzar ancho  fw"
-
+          'FIXME: pendiente  ancho  fw"
+          sustituirXYFW(troceado[1], "fw")
+        Case "[fh]"
+          'FIXME: pendiente  alto  fh"
+          sustituirXYFW(troceado[1], "fh")
         Case Else
           sustituir = troceado[0]
           troceado.delete(0)
@@ -196,16 +222,6 @@ Public Sub procesar(nombrefichero As String)
 
 End
 
-'..........................
-'    procesar fichero de datos y añadirlos a la plantilla (nuevo .svg)
-'..........................
-
-
-Public ficheroAbierto As Boolean = False 'inicialmente no hay ningun fichero abierto
-Public destinoFichero As String = ""
-Public ContenidoActualSVG As String 'contenido de de la plantilla
-Public FicheroPlantilla As String 'nombre del fichero de plantilla
-Public nombrefinal As String 'nombre que tendrá el fichero de destino .svg
 
 
 '..........................
@@ -255,11 +271,11 @@ Public Function comprobarRutaFichero(nombre As String) As String
 
   Dim composicion As String[]
 
-  Print ""
-  Print ""
-  Print "paso 1:"; nombre
+  Debug ""
+  Debug ""
+  Debug "paso 1:"; nombre
   If Mid$(nombre, 1, 2) = "./" Then nombre = pwd() & "/" & Mid$(nombre, 2, Len(nombre))
-  Print "paso 2:"; nombre
+  Debug "paso 2:"; nombre
   If Mid$(nombre, 1, 3) = "../" Then
 
     composicion = Split(pwd(), "/")
@@ -267,16 +283,16 @@ Public Function comprobarRutaFichero(nombre As String) As String
 
 
     nombre = composicion.join("/") & "/" & RTrim$(Mid$(nombre, 4, Len(nombre)))
-    Print "paso 3:"; nombre
+    Debug "paso 3:"; nombre
   Endif
 
   If Not Exist(nombre) Then
     nombre = pwd() & "/" & nombre
-    Print "paso 4:"; nombre
+    Debug "paso 4:"; nombre
   Endif
 
-  Print "paso 5:"; nombre
-  Print ""
+  Debug "paso 5:"; nombre
+  Debug ""
   Return nombre
 
 End
@@ -305,7 +321,7 @@ End
 
 Public Sub procesarImagen(nombre As String)
 
-  Dim nombreficheroimagen As Stirng
+  Dim nombreficheroimagen As String
 
   'para que reconozca nombres con "./nombre" o/y "../nombre"
   nombreficheroimagen = comprobarRutaFichero(nombre)
@@ -325,14 +341,17 @@ Public Sub procesarImagen(nombre As String)
   imagenEnProceso = True
 
 
-  ''TODO: queda insertar codigo de imagen svg, y nombre de archivo
   'crear bloque de codigo svg para insertar imagen
-  SvgImagen = File.Load("codigoimagen.svg") '<- crear este archivo
+  SvgImagen = File.Load("codigoimagen.svg")
   'poner nombre de la imagen, para que sea incrustada.
-  svgImagen = Replace$(SvgImagen, "fichero", nombreficheroimagen)
-  'en los siguientes lineas se definiran las coordenada
-  'en el archivos de datos..
+  svgImagen = Replace$(SvgImagen, "RutaFicheroImagen", nombreficheroimagen)
+  'genero un id unico para la imagen
+  contadorimagen += 1
+  svgImagen = Replace$(SvgImagen, "imageIdd", "image" & Str$(1000 + contadorimagen))
 
+
+  'en los siguientes lineas del fichero de datos se deben de definir  definiran las coordenada
+  'en el archivos de datos..
   '------------------------------------------
   'solamente cuando se cree otro archivo de imagen o sea un nuevo origen de plantilla se sustituirarn los datos de la imagen, x, y, fw
   '------------------------------------------
@@ -342,10 +361,68 @@ End
 Public Sub cerrarImagen()
   'en esta subrutina, cerramos los datos de la imagen, y lo añadimos
   'al final del fichero .svg
+  'TODO: ajustar imagen si no se ha definido el ancho o el largo, para que guarde proporciones
+  'FIXME: poner tambien un caso de ajuste "por defecto" segun la terminación del nombre del fichero de imagen:
+  ' " V." -> vertical w=350  h=467
+  ' " H." -> horizontal w=420 h=315
 
-  ''TODO: terminar por reemplazar y guardar la zona de imagen2
+  If InStr(SvgImagen, "fhh") = 0 And InStr(SvgImagen, "fww") = 0 Then
+    'relleno por terminacion del nombre del fichero
+
+
+    If InStr(Upper$(nombrefinal), " V.") <> 0 Then
+      SvgImagen = Replace$(SvgImagen, "fww", "350")
+
+      SvgImagen = Replace$(SvgImagen, "fhh", "467")
+
+
+    Else
+      If InStr(Upper$(nombrefinal), " H.") <> 0 Then
+        SvgImagen = Replace$(SvgImagen, "fww", "420")
+
+        SvgImagen = Replace$(SvgImagen, "fhh", "315")
+      Endif
+
+    Endif
+
+
+
+
+  Endif
+
+
+  ContenidoActualSVG = Replace$(ContenidoActualSVG, "</svg>", SvgImagen & "</svg>")
+
+  svgImagen = ""
+  imagenEnProceso = False
+
 
 End
+
+
+Public Sub sustituirXYFW(texto As String, caso As String) ''sustituye los datos del x,y,w,h segun el "caso" introducido
+  'si no contenido en svgImagen, esque no hay una imagen
+
+  If Len(svgImagen) = 0 Then
+    Print "Error: se debe definir un archivo imagen con la orden [imagen], antes de poner coordenadas"
+    Quit
+
+  Endif
+
+  Select Case caso
+    Case "x"
+      SvgImagen = Replace$(SvgImagen, "Coord_xxxx", texto)
+    Case "y"
+      SvgImagen = Replace$(SvgImagen, "Coord_yyyy", texto)
+    Case "fw"
+      SvgImagen = Replace$(SvgImagen, "fww", texto)
+    Case "fh"
+      SvgImagen = Replace$(SvgImagen, "fhh", texto)
+  End Select
+
+
+End
+
 
 
 
@@ -360,7 +437,11 @@ Public Sub activarFinFicheroAnterior()
   If ficheroAbierto = True Then
     Print ""
 
-    ''TODO: terminar por reemplazar y guardar la zona de imagen
+    ''FIXME: terminar por reemplazar y guardar la zona de imagen
+
+    If imagenEnProceso = True Then
+      cerrarImagen()
+    Endif
 
     Print "Fichero Abierto, guardando contenido en: "; nombrefinal
     'hay que guardar los datos
@@ -375,6 +456,14 @@ Public Sub activarFinFicheroAnterior()
 
 End
 
+
+
+
+
+
+
+
+
 Public Function pwd() As String ''retorna la ruta actual donde se esta ejecutando el programa
 
   Dim ruta As String
@@ -385,15 +474,6 @@ Public Function pwd() As String ''retorna la ruta actual donde se esta ejecutand
 End
 
 
-
-
-
-Dim ruta As String
-
-  Shell "pwd" To ruta
-  Return Replace(ruta, "\n", "")
-
-End
 
 
 

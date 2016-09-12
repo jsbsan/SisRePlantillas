@@ -2,6 +2,7 @@
 # Compiled with Gambas 3.9.0
 Title=SisRePlantillas
 Startup=Main
+Icon=plantilla.png
 Version=0.0.11
 Description="Sistema de Reemplazo de datos en Plantillas"
 Authors="Julio Sanchez Berro"

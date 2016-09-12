@@ -1,3 +1,6 @@
+[Bookmarks]
+Main=[]
+
 [Breakpoints]
 Count=0
 
@@ -12,11 +15,12 @@ Geometry=[-1,37,224,280]
 Path="SisRePlantillas.gambas"
 
 [OpenFile]
-Active=1
-File[1]=".src/Main.module:0.346"
-Count=3
+Active=4
+File[1]=".src/Main.module:11.383"
+Count=4
 File[2]="README.md:52.13"
-File[3]="/tmp/gambas.1000/9012/1.console:0.0"
+File[3]="plantilla.png"
+File[4]="codigoimagen.svg:19.6"
 
 [Watches]
 Count=0

@@ -1,0 +1,8 @@
+  <image
+       xlink:href="RutaFicheroImagen"
+       x="Coord_xxxx"
+       y="Coord_yyyy"
+       id="imageIdd"
+       preserveAspectRatio="none"
+       height="fhh"
+       width="fww" />
