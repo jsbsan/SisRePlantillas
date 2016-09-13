@@ -74,7 +74,7 @@ Public Sub Main()
     Print "****************"
     Print "Uso:"
     Print "****************"
-    Print "srp.gambas fichero.dat"
+    Print "SisRePlantillas fichero.dat"
     Print ""
     Print "****************"
     Print "Ejemplo de archivo de datos .dat:"
@@ -362,22 +362,25 @@ Public Sub cerrarImagen()
   'en esta subrutina, cerramos los datos de la imagen, y lo añadimos
   'al final del fichero .svg
   'TODO: ajustar imagen si no se ha definido el ancho o el largo, para que guarde proporciones
-  'FIXME: poner tambien un caso de ajuste "por defecto" segun la terminación del nombre del fichero de imagen:
+  'FIXME: NO FUNCIONA!! poner tambien un caso de ajuste "por defecto" segun la terminación del nombre del fichero de imagen:
   ' " V." -> vertical w=350  h=467
   ' " H." -> horizontal w=420 h=315
 
-  If InStr(SvgImagen, "fhh") = 0 And InStr(SvgImagen, "fww") = 0 Then
+  Print "Comprobando trozo de codigo de imagen"
+  Print SvgImagen
+
+  If InStr(SvgImagen, "fhh") <> 0 And InStr(SvgImagen, "fww") <> 0 Then
     'relleno por terminacion del nombre del fichero
 
 
-    If InStr(Upper$(nombrefinal), " V.") <> 0 Then
+    If InStr(Upper$(nombrefinal), "V.") <> 0 Then
       SvgImagen = Replace$(SvgImagen, "fww", "350")
 
       SvgImagen = Replace$(SvgImagen, "fhh", "467")
 
 
     Else
-      If InStr(Upper$(nombrefinal), " H.") <> 0 Then
+      If InStr(Upper$(nombrefinal), "H.") <> 0 Then
         SvgImagen = Replace$(SvgImagen, "fww", "420")
 
         SvgImagen = Replace$(SvgImagen, "fhh", "315")
@@ -450,7 +453,8 @@ Public Sub activarFinFicheroAnterior()
     ContenidoActualSVG = ""
     ficheroAbierto = False
     'generar pdf
-    Exec ["inkscape", nombrefinal, "--export-dpi=" & Str$(300), "--export-png", Replace(nombrefinal, ".svg", ".png", ">>log_inskape.txt")]
+    Exec ["inkscape", nombrefinal, "--export-dpi=" & Str$(300), "--export-png", Replace(nombrefinal, ".svg", ".png")]
+    '' lo quito porque me esta dando muchos problemas: , ">>", ".\\log_inkscape.txt"]
 
   Endif
 

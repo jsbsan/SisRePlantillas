@@ -50,13 +50,13 @@ fh: indica alto de la imagen que tendra en la plantilla
 
 Si no hay indicaciones de fw y fh, se establece anchos segun el nombre del archivo de iamgen.
 
-Si termina en " V.ext"
+Si termina en "V.png"
     w = 350
     h = 467
 
 
 
-Si termina en "  H.ext" 
+Si termina en "H.png" 
     w = 420
     H= 315
 

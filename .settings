@@ -2,8 +2,7 @@
 Count=0
 
 [DebugWindow]
-Count=1
-DebugWindow[1]="composicion"
+Count=0
 
 [DebugWindow/composicion]
 Geometry=[-1,37,224,280]
@@ -12,12 +11,13 @@ Geometry=[-1,37,224,280]
 Path="SisRePlantillas.gambas"
 
 [OpenFile]
-Active=2
-File[1]=".src/Main.module:53.382"
-Count=4
-File[2]="README.md:22.52"
+Active=1
+File[1]=".src/Main.module:24.364"
+Count=5
+File[2]="README.md:11.59"
 File[3]="plantilla.png"
 File[4]="codigoimagen.svg:19.6"
+File[5]="PRUEBAS PLANTILLAS/i-14-01:13.16"
 
 [Watches]
 Count=0
