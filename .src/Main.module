@@ -29,11 +29,11 @@ Public destinoFichero As String = ""
 Public ContenidoActualSVG As String 'contenido de de la plantilla
 Public FicheroPlantilla As String 'nombre del fichero de plantilla
 Public nombrefinal As String 'nombre que tendrá el fichero de destino .svg
+Public nombreficheroimagen As String 'nombre del fichero de imagen que se esta incluyendo en la plantilla rellena
+
 '***************************************************
 '         Variables para el proceso de imagenes
 '***************************************************
-
-
 Public imagenEnProceso As Boolean = False 'bandera que controla si hay una imagen activada  e insertando datos en ella (ancho,largo,x,y,etc..).
 
 Public contadorimagen As Integer = 0 'contador de imagenes que existen en los documentos.
@@ -274,7 +274,7 @@ Public Function comprobarRutaFichero(nombre As String) As String
   Debug ""
   Debug ""
   Debug "paso 1:"; nombre
-  If Mid$(nombre, 1, 2) = "./" Then nombre = pwd() & "/" & Mid$(nombre, 2, Len(nombre))
+  If Mid$(nombre, 1, 2) = "./" Then nombre = pwd() & "/" & File.Name(nombre)
   Debug "paso 2:"; nombre
   If Mid$(nombre, 1, 3) = "../" Then
 
@@ -287,7 +287,7 @@ Public Function comprobarRutaFichero(nombre As String) As String
   Endif
 
   If Not Exist(nombre) Then
-    nombre = pwd() & "/" & nombre
+    nombre = Replace(pwd() & "/" & nombre, "//", "/")
     Debug "paso 4:"; nombre
   Endif
 
@@ -321,7 +321,7 @@ End
 
 Public Sub procesarImagen(nombre As String)
 
-  Dim nombreficheroimagen As String
+
 
   'para que reconozca nombres con "./nombre" o/y "../nombre"
   nombreficheroimagen = comprobarRutaFichero(nombre)
@@ -366,28 +366,42 @@ Public Sub cerrarImagen()
   ' " V." -> vertical w=350  h=467
   ' " H." -> horizontal w=420 h=315
 
-  Print "Comprobando trozo de codigo de imagen"
-  Print SvgImagen
+  Debug "Comprobando trozo de codigo de imagen"
 
-  If InStr(SvgImagen, "fhh") <> 0 And InStr(SvgImagen, "fww") <> 0 Then
+  Debug "Fichero Final: ", nombrefinal
+  Debug SvgImagen
+
+
+  Debug "fhh:", InStr(SvgImagen, "fhh")
+  Debug "fww:", InStr(SvgImagen, "fww")
+
+  If (Not InStr(SvgImagen, "fhh") = 0) And (Not InStr(SvgImagen, "fww") = 0) Then
+    '-----------------------------
+    'TAMAÑO POR DEFECTO "DEFAULT"
+    '-----------------------------
     'relleno por terminacion del nombre del fichero
 
 
-    If InStr(Upper$(nombrefinal), "V.") <> 0 Then
+    If InStr(Upper$(nombreficheroimagen), "V.") <> 0 Then
       SvgImagen = Replace$(SvgImagen, "fww", "350")
 
       SvgImagen = Replace$(SvgImagen, "fhh", "467")
 
 
     Else
-      If InStr(Upper$(nombrefinal), "H.") <> 0 Then
+      If InStr(Upper$(nombreficheroimagen), "H.") <> 0 Then
         SvgImagen = Replace$(SvgImagen, "fww", "420")
 
         SvgImagen = Replace$(SvgImagen, "fhh", "315")
+      Else
+        Debug "Warnning: La terminación del nombre de archivo no me permite sacar un tamaño por defecto..."
+
       Endif
 
     Endif
 
+    Debug "---> Cambios realizados <---"
+    Debug SvgImagen
 
 
 
@@ -472,7 +486,8 @@ Public Function pwd() As String ''retorna la ruta actual donde se esta ejecutand
 
   Dim ruta As String
 
-  Shell "pwd" To ruta
+  ruta = Application.Path
+  ' Shell "pwd" To ruta
   Return Replace(ruta, "\n", "")
 
 End

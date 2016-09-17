@@ -1,24 +1,37 @@
 [Breakpoints]
-Count=0
+Count=1
+Breakpoint[1]="Main.195"
 
 [DebugWindow]
-Count=0
+Count=2
+DebugWindow[1]="troceado"
+DebugWindow[2]="contenidoSinAyuda"
 
 [DebugWindow/composicion]
-Geometry=[-1,37,224,280]
+Geometry=[794,424,224,280]
+
+[DebugWindow/contenidoSinAyuda]
+Geometry=[1954,119,391,783]
+
+[DebugWindow/troceado]
+Geometry=[1467,371,224,280]
 
 [Executable]
 Path="SisRePlantillas.gambas"
 
 [OpenFile]
 Active=1
-File[1]=".src/Main.module:24.364"
-Count=5
+File[1]=".src/Main.module:3.370"
+Count=6
 File[2]="README.md:11.59"
 File[3]="plantilla.png"
 File[4]="codigoimagen.svg:19.6"
 File[5]="PRUEBAS PLANTILLAS/i-14-01:13.16"
+File[6]="i-14-01_06repfoto.png"
 
 [Watches]
-Count=0
+Count=3
+Watch[1]="SvgImagen"
+Watch[2]="contenidoSinAyuda[a]"
+Watch[3]="nombreficheroimagen"
 
