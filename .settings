@@ -3,9 +3,7 @@ Count=1
 Breakpoint[1]="Main.195"
 
 [DebugWindow]
-Count=2
-DebugWindow[1]="troceado"
-DebugWindow[2]="contenidoSinAyuda"
+Count=0
 
 [DebugWindow/composicion]
 Geometry=[794,424,224,280]

@@ -31,6 +31,7 @@ Public FicheroPlantilla As String 'nombre del fichero de plantilla
 Public nombrefinal As String 'nombre que tendrá el fichero de destino .svg
 Public nombreficheroimagen As String 'nombre del fichero de imagen que se esta incluyendo en la plantilla rellena
 
+Public dpivalor As String = "300" 'por defecto, la definicion de la imagen que sale.
 '***************************************************
 '         Variables para el proceso de imagenes
 '***************************************************
@@ -84,8 +85,10 @@ Public Sub Main()
     Print "#presa# 	Presa de El Pintado <- se sustituye '#presa#' por el texto 'Presa de El Pintado' dentro de la plantilla"
     Print ""
     Print "[imagen] ../graficoejemplo.png <- indicamos origen de la imagen a insertar"
-    Print "[x] 190 <- indicamos coordenada X de la esquina inferior donde insertamos el grafico (eje X)"
-    Print "[y] 356 <- indicamos coordenada Y de la esquina inferior donde insertamos el grafico (eje Y)"
+    Print "[dpi] 75 <- definimos calidad de salida de la imagen. Por defecto vale 300"
+
+    Print "[x] 190 <- indicamos coordenada X de la esquina inferior izquierda donde insertamos el grafico (eje X)"
+    Print "[y] 356 <- indicamos coordenada Y de la esquina inferior izquierda donde insertamos el grafico (eje Y)"
     Print "[fw] 420 <- ancho (width) del grafico, en este caso 420 px"
     Print "[fh] 320 <- alto (height) del grafico, en este caso 320 px"
     Print ""
@@ -207,6 +210,8 @@ Public Sub procesar(nombrefichero As String)
         Case "[fh]"
           'FIXME: pendiente  alto  fh"
           sustituirXYFW(troceado[1], "fh")
+        Case "[dpi]"
+          dpivalor = troceado[1]
         Case Else
           sustituir = troceado[0]
           troceado.delete(0)
@@ -467,7 +472,7 @@ Public Sub activarFinFicheroAnterior()
     ContenidoActualSVG = ""
     ficheroAbierto = False
     'generar pdf
-    Exec ["inkscape", nombrefinal, "--export-dpi=" & Str$(300), "--export-png", Replace(nombrefinal, ".svg", ".png")]
+    Exec ["inkscape", nombrefinal, "--export-dpi=" & dpivalor, "--export-png", Replace(nombrefinal, ".svg", ".png")]
     '' lo quito porque me esta dando muchos problemas: , ">>", ".\\log_inkscape.txt"]
 
   Endif

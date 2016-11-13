@@ -1,9 +1,9 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.9.0
+# Compiled with Gambas 3.9.1
 Title=SisRePlantillas
 Startup=Main
 Icon=plantilla.png
-Version=0.0.14
+Version=0.0.15
 Description="Sistema de Reemplazo de datos en Plantillas"
 Authors="Julio Sanchez Berro"
 Arguments=[["./i-14-001.txt"],["-h"],["/home/mint/Documentos/Pruebas/Plantillas/dato1/i-14-01"]]
@@ -15,7 +15,7 @@ Maintainer=jsbsan
 Address=jusabejusabe@hotmail.com
 Url=www.jusabejusabe.blogspot.com
 License=General Public License
-PackageName=sisreplantillas-0.0.14
+PackageName=sisreplantillas-0.0.15
 CreateEachDirectory=1
 Packager=1
 Systems=debian
