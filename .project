@@ -3,7 +3,7 @@
 Title=SisRePlantillas
 Startup=Main
 Icon=plantilla.png
-Version=0.0.15
+Version=0.0.16
 Description="Sistema de Reemplazo de datos en Plantillas"
 Authors="Julio Sanchez Berro"
 Arguments=[["./i-14-001.txt"],["-h"],["/home/mint/Documentos/Pruebas/Plantillas/dato1/i-14-01"]]

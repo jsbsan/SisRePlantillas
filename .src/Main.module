@@ -112,6 +112,10 @@ Public Sub Main()
   Endif
   Print
 
+  Print "***********************"
+  Print "*      disfrútalo     *"
+  Print "***********************"
+
 End
 
 Public nombreFicheroDATOS As String
@@ -367,9 +371,13 @@ Public Sub cerrarImagen()
   'en esta subrutina, cerramos los datos de la imagen, y lo añadimos
   'al final del fichero .svg
   'TODO: ajustar imagen si no se ha definido el ancho o el largo, para que guarde proporciones
+
   'FIXME: NO FUNCIONA!! poner tambien un caso de ajuste "por defecto" segun la terminación del nombre del fichero de imagen:
   ' " V." -> vertical w=350  h=467
   ' " H." -> horizontal w=420 h=315
+
+
+
 
   Debug "Comprobando trozo de codigo de imagen"
 
@@ -379,8 +387,9 @@ Public Sub cerrarImagen()
 
   Debug "fhh:", InStr(SvgImagen, "fhh")
   Debug "fww:", InStr(SvgImagen, "fww")
+  Debug "dpi:", dpivalor
 
-  If (Not InStr(SvgImagen, "fhh") = 0) And (Not InStr(SvgImagen, "fww") = 0) Then
+  If (InStr(SvgImagen, "fhh") = 0) And (InStr(SvgImagen, "fww") = 0) Then
     '-----------------------------
     'TAMAÑO POR DEFECTO "DEFAULT"
     '-----------------------------
