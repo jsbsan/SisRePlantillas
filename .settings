@@ -18,12 +18,12 @@ Path="SisRePlantillas.gambas"
 
 [OpenFile]
 Active=1
-File[1]=".src/Main.module:3.370"
-Count=5
-File[2]="README.md:11.59"
+File[1]=".src/Main.module:3.90"
+File[2]="README.md:11.30"
 File[3]="plantilla.png"
-File[4]="codigoimagen.svg:19.6"
+File[4]="codigoimagen.svg:8.0"
 File[5]="PRUEBAS PLANTILLAS/i-14-01:13.16"
+Count=5
 
 [Watches]
 Count=3
