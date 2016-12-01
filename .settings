@@ -1,5 +1,6 @@
 [Breakpoints]
-Count=0
+Breakpoint[1]="Main.280"
+Count=1
 
 [DebugWindow]
 Count=0
@@ -18,7 +19,7 @@ Path="SisRePlantillas.gambas"
 
 [OpenFile]
 Active=1
-File[1]=".src/Main.module:3.90"
+File[1]=".src/Main.module:505.2"
 File[2]="README.md:11.30"
 File[3]="plantilla.png"
 File[4]="codigoimagen.svg:8.0"

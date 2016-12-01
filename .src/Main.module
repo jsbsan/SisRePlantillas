@@ -500,8 +500,10 @@ Public Function pwd() As String ''retorna la ruta actual donde se esta ejecutand
 
   Dim ruta As String
 
-  ruta = Application.Path
-  ' Shell "pwd" To ruta
+   Shell "pwd" To ruta
+  
+  
+  'ruta = Application.Path
   Return Replace(ruta, "\n", "")
 
 End
