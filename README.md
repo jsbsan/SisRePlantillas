@@ -23,9 +23,13 @@ empezar a analizar el fichero:
 # [destino] YYY(&nombre) 
 -> indica donde va a guardar y con que nombre (por defecto nombre de plantilla + _NOMBRE.svg)
 
+
+# [dpi] dato
+-> Indica la definición de salida de la imagen. Baja calidad 75, mejor calidad 300, muy buena calidad 600. 
+A mayor calidad, mayor tamaño de archivo de imagen y más lento se hace le proceso de creación.
+
+
 # #etiqueta#  dato
-
-
 'sustituye el texto "#etiqueta#" por el dato indicado en la siguiente columnas
 
 Para añadir imagen a la plantilla:

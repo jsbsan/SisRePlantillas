@@ -18,9 +18,9 @@ Geometry=[1467,371,224,280]
 Path="SisRePlantillas.gambas"
 
 [OpenFile]
-Active=1
-File[1]=".src/Main.module:505.2"
-File[2]="README.md:11.30"
+File[1]=".src/Main.module:451.0"
+Active=2
+File[2]="README.md:27.63"
 File[3]="plantilla.png"
 File[4]="codigoimagen.svg:8.0"
 File[5]="PRUEBAS PLANTILLAS/i-14-01:13.16"
