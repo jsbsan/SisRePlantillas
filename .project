@@ -3,7 +3,7 @@
 Title=SisRePlantillas
 Startup=Main
 Icon=plantilla.png
-Version=0.0.18
+Version=0.0.19
 Description="Sistema de Reemplazo de datos en Plantillas.Para version de  Gambas3.5.2"
 Authors="Julio Sanchez Berro"
 Arguments="/tmp/cartonC3A6CF81783D_771.txt"
@@ -15,7 +15,7 @@ Maintainer=jsbsan
 Address=jusabejusabe@hotmail.com
 Url=www.jusabejusabe.blogspot.com
 License=General Public License
-PackageName=sisreplantillas-0.0.18
+PackageName=sisreplantillas-0.0.19
 CreateEachDirectory=1
 Packager=1
 Systems=debian

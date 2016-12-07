@@ -28,6 +28,9 @@ empezar a analizar el fichero:
 -> Indica la definición de salida de la imagen. Baja calidad 75, mejor calidad 300, muy buena calidad 600. 
 A mayor calidad, mayor tamaño de archivo de imagen y más lento se hace le proceso de creación.
 
+# [svg] dato1 dato2
+->Indica que haga un cambio dentro del fichero svg que sustituya el dato1 por el dato2.
+Esto lo hace despues de cambiar las etiquetas.
 
 # #etiqueta#  dato
 'sustituye el texto "#etiqueta#" por el dato indicado en la siguiente columnas

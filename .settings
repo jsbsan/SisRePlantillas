@@ -1,6 +1,5 @@
 [Breakpoints]
-Breakpoint[1]="Main.280"
-Count=1
+Count=0
 
 [DebugWindow]
 Count=0
@@ -18,9 +17,9 @@ Geometry=[1467,371,224,280]
 Path="SisRePlantillas.gambas"
 
 [OpenFile]
-File[1]=".src/Main.module:451.0"
-Active=2
-File[2]="README.md:27.63"
+Active=1
+File[1]=".src/Main.module:429.27"
+File[2]="README.md:32.19"
 File[3]="plantilla.png"
 File[4]="codigoimagen.svg:8.0"
 File[5]="PRUEBAS PLANTILLAS/i-14-01:13.16"
