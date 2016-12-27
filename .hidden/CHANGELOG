@@ -1,3 +1,6 @@
+* Tue Dec 27 2016 jsbsan <jusabejusabe@hotmail.com> 0.0.20
+- Eliminado imagenes de pruebas
+
 * Wed Dec 07 2016 jsbsan <jusabejusabe@hotmail.com> 0.0.19
 - agrego orden [svg] para cambios en el fichero svg (se realiza despues de haber cambiado las etiquetas y las imagenes)
 
