@@ -19,7 +19,7 @@ Path="SisRePlantillas.gambas"
 [OpenFile]
 File[1]=".src/Main.module:467.2"
 Active=2
-File[2]="README.md:76.7"
+File[2]="README.md:75.0"
 File[3]="plantilla.png"
 File[4]="codigoimagen.svg:8.0"
 Count=4

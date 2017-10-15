@@ -81,8 +81,13 @@ Ejemplo:
 '**************************************************'  
   
 [origen]  ../04registro_de_inicio_accion_correctora.svg
+
 [destino]  &nombre
+
 #presa#   Presa
+
 #cant01#  1 Ud
+
 #descripcion01#  Desmontaje de cableado y postes metálicos.
+
 
