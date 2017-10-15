@@ -69,11 +69,20 @@ Si termina en "H.png"
 
 
 
-
-
-
 'una vez ternimando la lectura del archivo, se añaden los datos y se crean  los .svg (por si se quiere editar) y las imagenes .png de dichos archivos .svg.
 
 'nota:
 'tambien es posible definir varios origen y destino, para trabajar con varias plantillas en el mismo archivo de datos
+
+Ejemplo:
+'**************************************************'  
+'REGISTRO DE INICIO DE ACCIÓN CORRECTORA  
+'Formato F2 (Rev.0 /Noviembre 2014)  
+'**************************************************'  
+  
+[origen]  ../04registro_de_inicio_accion_correctora.svg
+[destino]  &nombre
+#presa#   Presa
+#cant01#  1 Ud
+#descripcion01#  Desmontaje de cableado y postes metálicos.
 

@@ -425,7 +425,7 @@ Public Sub sustituirXYFW(texto As String, caso As String) ''sustituye los datos 
 End
 
 Public Sub activarFinFicheroAnterior()
-
+  
   Dim a As Integer
   'destino ya esta definida
   
@@ -461,6 +461,8 @@ Public Sub activarFinFicheroAnterior()
     'generar pdf
     Exec ["inkscape", nombrefinal, "--export-dpi=" & dpivalor, "--export-png", Replace(nombrefinal, ".svg", ".png")]
     '' lo quito porque me esta dando muchos problemas: , ">>", ".\\log_inkscape.txt"]
+    'formato pdf
+    Exec ["inkscape", nombrefinal, "--export-dpi=" & dpivalor, "--export-pdf", Replace(nombrefinal, ".svg", ".pdf")]
     
   Endif
   
