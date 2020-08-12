@@ -1,3 +1,19 @@
+* Wed Aug 12 2020 jsbsan <jusabejusabe@hotmail.com> 0.0.25
+
+* Wed Aug 12 2020 jsbsan <jusabejusabe@hotmail.com> 0.0.25
+
+* Wed Aug 12 2020 jsbsan <jusabejusabe@hotmail.com> 0.0.25
+- borrado de ficheros temporales _out
+
+* Wed Aug 12 2020 jsbsan <jusabejusabe@hotmail.com> 0.0.25
+- borrado de temporales si no pongo parametros
+
+* Wed Aug 12 2020 jsbsan <jusabejusabe@hotmail.com> 0.0.24
+- borrado de ficheros temporales _out.png y _out.pdf
+
+* Wed Aug 12 2020 jsbsan <jusabejusabe@hotmail.com> 0.0.23
+- separo parametros en orden exec
+
 * Wed Aug 12 2020 jsbsan <jusabejusabe@hotmail.com> 0.0.22
 - cambio parametro de --export-png a --export-type png
 

@@ -103,16 +103,23 @@ Public Sub Main()
     Print " También es posible definir varios [origen] y [destino], para trabajar con varias plantillas, en un mismo fichero de datos"
 
     Print
-    Quit
+
+    Print "***********************"
+    Print "*      disfrútalo     *"
+    Print "***********************"
   Else
     procesar(lista[1])
     'procesamos el archivo que nos pasan de argumento
+
+    Print "***********************"
+    Print "*      disfrútalo     *"
+    Print "***********************"
+    'Exec ["cd", pwd(), "rm", "*_out.pdf"] 'borrado de ficheros auxiliares de salida temporal
+    'Exec ["cd", pwd(), "rm", "*_out.png"] 'borrado de ficheros auxiliares de salida temporal
   Endif
   Print
 
-  Print "***********************"
-  Print "*      disfrútalo     *"
-  Print "***********************"
+  'borrado alternativo de ficheros temporales
 
 End
 
@@ -459,10 +466,10 @@ Public Sub activarFinFicheroAnterior()
     ContenidoActualSVG = ""
     ficheroAbierto = False
     'generar pdf
-    Exec ["inkscape", nombrefinal, "--export-dpi=" & dpivalor, "--export-type png", Replace(nombrefinal, ".svg", ".png")] 'cambio de --export-png a --export-type png
+    Exec ["inkscape", nombrefinal, "--export-dpi=" & dpivalor, "--export-type", "png", Replace(nombrefinal, ".svg", ".png")] 'cambio de --export-png a --export-type png
     '' lo quito porque me esta dando muchos problemas: , ">>", ".\\log_inkscape.txt"]
     'formato pdf
-    Exec ["inkscape", nombrefinal, "--export-dpi=" & dpivalor, "--export-type pdf", Replace(nombrefinal, ".svg", ".pdf")] 'cambio de --export-pdf a --export-type pdf
+    Exec ["inkscape", nombrefinal, "--export-dpi=" & dpivalor, "--export-type", "pdf", Replace(nombrefinal, ".svg", ".pdf")] 'cambio de --export-pdf a --export-type pdf
 
   Endif
 
