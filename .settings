@@ -17,12 +17,15 @@ Geometry=[1467,371,224,280]
 Path="SisRePlantillas.gambas"
 
 [OpenFile]
-File[1]=".src/Main.module:467.2"
-Active=2
-File[2]="README.md:75.0"
+File[1]=".src/Main.module:165.464"
+Active=1
+File[2]="README.md:17.0"
 File[3]="plantilla.png"
 File[4]="codigoimagen.svg:8.0"
 Count=4
+
+[Package]
+Dir="~/Descargas/"
 
 [Watches]
 Count=3

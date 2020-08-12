@@ -43,13 +43,13 @@ Public svgImagen As String 'codigo que contiene datos de una imagen
 
 Public Sub Main()
   'parametros que nos pasen
-  
+
   Dim lista As New String[]
   Dim contador As Integer
   Dim argumento As String
-  
+
   Print "Directorio de trabajo: "; pwd()
-  
+
   For Each argumento In Application.Args
     'añadimos todos los argumentos a un array de cadenas
     lista.add(argumento)
@@ -57,11 +57,11 @@ Public Sub Main()
     ' Print "Nº "; contador; ": "; argumento
     contador += 1
   Next
-  
+
   'nota: el indice 0 es el nombre del programa .gambas
   ' el indice 1  es el parametro que nos interesa
   If lista.count = 1 Then lista.add("-h")
-  
+
   If Upper$(lista[1]) = Upper$("-h") Or Upper$(lista[1]) = Upper$("-help") Then
     'mostrar ayuda...
     Print "------------------------------"
@@ -97,11 +97,11 @@ Public Sub Main()
     Print "Poner comentarios en el archivo de datos:"
     Print "Todas las lineas que empiecen por: ', /* , // o *"
     Print "son consideradas como comentarios para ayuda a la persona que este rellenando los datos, y no serán analizadas por el programa."
-    
+
     Print ""
     Print "nota:"
     Print " También es posible definir varios [origen] y [destino], para trabajar con varias plantillas, en un mismo fichero de datos"
-    
+
     Print
     Quit
   Else
@@ -109,25 +109,25 @@ Public Sub Main()
     'procesamos el archivo que nos pasan de argumento
   Endif
   Print
-  
+
   Print "***********************"
   Print "*      disfrútalo     *"
   Print "***********************"
-  
+
 End
 
 Public nombreFicheroDATOS As String
 
 Public Sub procesar(nombrefichero As String)
-  
+
   Dim contenido As String[]
   Dim contenidoSinAyuda As New String[] 'lineas sin ayuda y sin lineas en blanco
   Dim renglon As String = ""
   Dim troceado As String[]
-  
+
   Dim sustituir As String 'palabra a sustituir de la plantilla, ejemplo #nombre#
   Dim restolinea As String
-  
+
   Dim a As Integer 'para el for next
   '¡comprobar que exista el fichero
   If Not Exist(nombrefichero) Then
@@ -140,27 +140,27 @@ Public Sub procesar(nombrefichero As String)
       nombrefichero = pwd() & "/" & nombrefichero
       Print "Nombre del fichero de datos es:...."; nombrefichero
     Endif
-    
+
   Endif
-  
+
   nombreFicheroDATOS = nombrefichero
-  
+
   'leer todas las lineas
-  
+
   If file.load(nombrefichero) = "" Then
     Print "Error: ¡¡¡ El fichero esta vacio !!!"
     Quit
   Endif
-  
+
   contenido = Split(file.load(nombrefichero), "\n")
-  
+
   '*******************************************************************
   'eliminar lineas de comentarios -> las lineas que  empiezan con los siguientes caracteres:' /* // *
   'y tambien las que esten vacias (solo retorno de carro)
   '*****************************************************************
   For a = 0 To contenido.max
     renglon = Replace(Replace(contenido[a], " ", ""), "\t", "") 'reemplazo espacios o tabuladores en la linea
-    
+
     If Trim(renglon) = "" Or Mid$(renglon, 1, 1) = "'" Or Mid$(renglon, 1, 2) = "/*" Or Mid$(renglon, 1, 2) = "//" Or Mid$(renglon, 1, 1) = "*" Then
       'no añadir, es una linea de ayuda o vacia.
     Else
@@ -168,20 +168,20 @@ Public Sub procesar(nombrefichero As String)
       contenidoSinAyuda.add(contenido[a])
       Print "Sin comentarios ("; a; "): "; CONTENIDO[A]
     Endif
-    
+
   Next
-  
+
   '*************************************************************************
   'procesar lineas que son comandos: [origen] [destino] o sustitucion #XXXX#
   '*************************************************************************
-  
+
   For a = 0 To contenidoSinAyuda.max
     troceado = Split(contenidoSinAyuda[a], "\t")
-    
+
     If troceado.count = 0 Then troceado = contenidoSinAyuda[a]
-    
+
     If troceado.count > 0 Then
-      
+
       '********************
       'analizador de lineas
       '********************
@@ -216,30 +216,30 @@ Public Sub procesar(nombrefichero As String)
           procesarSustitucion(sustituir, restolinea)
       End Select
     Endif
-    
+
   Next
-  
+
   activarFinFicheroAnterior()
-  
+
 End
 
 '..........................
 '    procesar reemplazos
 '..........................
 Public Sub procesarSustitucion(palabra As String, restolineas As String)
-  
+
   Print "-> Sustituir: ", palabra, restolineas
   palabra = Trim(palabra) 'quito espacios en blanco de la palabra a sustituir
   ContenidoActualSVG = Replace$(ContenidoActualSVG, palabra, restolineas)
   Print "*"; 'escribo en la consola un "*" para indicar proceso realizado
-  
+
 End
 
 Public Sub sustituirSVG(antigua As String, nueva As String)
-  
+
   listaAntigua.add(antigua)
   listaNueva.add(nueva)
-  
+
 End
 
 '..........................
@@ -248,91 +248,91 @@ End
 
 Public Sub procesarOrigen(nombre As String)
   'cerrar el anterior y convertir en pdf
-  
+
   If ficheroAbierto = True Then
     activarFinFicheroAnterior()
   Endif
-  
+
   ficheroAbierto = True 'informo a la aplicacion
   Print "(ProcesandoOrigen) Fichero abierto:", ficheroAbierto
-  
+
   nombre = comprobarRutaFichero(nombre)
-  
+
   Try ContenidoActualSVG = file.load(nombre) 'carga la plantilla
-  
+
   If Error Then
     Print ""
     Print "Error:"
     Print "   Error al intentar leer el archivo de plantilla SVG: " & nombre
     Quit
   Endif
-  
+
   FicheroPlantilla = file.Basename(nombre) 'solo el nombre sin extensión.
-  
+
 End
 
 Public Function comprobarRutaFichero(nombre As String) As String
-  
+
   Dim composicion As String[]
-  
+
   Debug ""
   Debug ""
   Debug "paso 1:"; nombre
   If Mid$(nombre, 1, 2) = "./" Then nombre = pwd() & "/" & File.Name(nombre)
   Debug "paso 2:"; nombre
   If Mid$(nombre, 1, 3) = "../" Then
-    
+
     composicion = Split(pwd(), "/")
     composicion.delete(composicion.count - 1)
-    
+
     nombre = composicion.join("/") & "/" & RTrim$(Mid$(nombre, 4, Len(nombre)))
     Debug "paso 3:"; nombre
   Endif
-  
+
   If Not Exist(nombre) Then
     nombre = Replace(pwd() & "/" & nombre, "//", "/")
     Debug "paso 4:"; nombre
   Endif
-  
+
   Debug "paso 5:"; nombre
   Debug ""
   Return nombre
-  
+
 End
 
 Public Sub procesarDestino(nombre As String)
-  
+
   'comprobar nombre final del fichero
   If Upper$(Trim(nombre)) = Upper$("&nombre") Then
     nombrefinal = pwd() & "/" & file.Basename(nombreFicheroDATOS) & "_" & file.basename(FicheroPlantilla) & ".svg"
   Else
     nombrefinal = pwd() & "/" & nombreFicheroDATOS & ".svg"
   Endif
-  
+
   Print "Fichero se guardara en:"; nombrefinal
-  
+
   Print ""
-  
+
 End
 
 Public Sub procesarImagen(nombre As String)
-  
+
   'para que reconozca nombres con "./nombre" o/y "../nombre"
   nombreficheroimagen = comprobarRutaFichero(nombre)
-  
+
   If Not Exist(nombreficheroimagen) Then
     Print "Error: el fichero imagen no lo encuentro ..."
     Print "       " & nombreficheroimagen
     Quit
   Endif
-  
+
   'si hay una imagen en proceso hay que cerrarlo (para admitir varias imagenes
   If imagenEnProceso = True Then
     cerrarImagen()
   Endif
-  
+
   imagenEnProceso = True
-  
+
   'crear bloque de codigo svg para insertar imagen
   SvgImagen = File.Load("codigoimagen.svg")
   'poner nombre de la imagen, para que sea incrustada.
@@ -340,77 +340,77 @@ Public Sub procesarImagen(nombre As String)
   'genero un id unico para la imagen
   contadorimagen += 1
   svgImagen = Replace$(SvgImagen, "imageIdd", "image" & Str$(1000 + contadorimagen))
-  
+
   'en los siguientes lineas del fichero de datos se deben de definir  definiran las coordenada
   'en el archivos de datos..
   '------------------------------------------
   'solamente cuando se cree otro archivo de imagen o sea un nuevo origen de plantilla se sustituirarn los datos de la imagen, x, y, fw
   '------------------------------------------
-  
+
 End
 
 Public Sub cerrarImagen()
   'en esta subrutina, cerramos los datos de la imagen, y lo añadimos
   'al final del fichero .svg
   'TODO: ajustar imagen si no se ha definido el ancho o el largo, para que guarde proporciones
-  
+
   'FIXME: NO FUNCIONA!! poner tambien un caso de ajuste "por defecto" segun la terminación del nombre del fichero de imagen:
   ' " V." -> vertical w=350  h=467
   ' " H." -> horizontal w=420 h=315
-  
+
   Debug "Comprobando trozo de codigo de imagen"
-  
+
   Debug "Fichero Final: ", nombrefinal
   Debug SvgImagen
-  
+
   Debug "fhh:", InStr(SvgImagen, "fhh")
   Debug "fww:", InStr(SvgImagen, "fww")
   Debug "dpi:", dpivalor
-  
+
   If (InStr(SvgImagen, "fhh") = 0) And (InStr(SvgImagen, "fww") = 0) Then
     '-----------------------------
     'TAMAÑO POR DEFECTO "DEFAULT"
     '-----------------------------
     'relleno por terminacion del nombre del fichero
-    
+
     If InStr(Upper$(nombreficheroimagen), "V.") <> 0 Then
       SvgImagen = Replace$(SvgImagen, "fww", "350")
-      
+
       SvgImagen = Replace$(SvgImagen, "fhh", "467")
-      
+
     Else
       If InStr(Upper$(nombreficheroimagen), "H.") <> 0 Then
         SvgImagen = Replace$(SvgImagen, "fww", "420")
-        
+
         SvgImagen = Replace$(SvgImagen, "fhh", "315")
       Else
         Debug "Warnning: La terminación del nombre de archivo no me permite sacar un tamaño por defecto..."
-        
+
       Endif
-      
+
     Endif
-    
+
     Debug "---> Cambios realizados <---"
     Debug SvgImagen
-    
+
   Endif
-  
+
   ContenidoActualSVG = Replace$(ContenidoActualSVG, "</svg>", SvgImagen & "</svg>")
-  
+
   svgImagen = ""
   imagenEnProceso = False
-  
+
 End
 
 Public Sub sustituirXYFW(texto As String, caso As String) ''sustituye los datos del x,y,w,h segun el "caso" introducido
   'si no contenido en svgImagen, esque no hay una imagen
-  
+
   If Len(svgImagen) = 0 Then
     Print "Error: se debe definir un archivo imagen con la orden [imagen], antes de poner coordenadas"
     Quit
-    
+
   Endif
-  
+
   Select Case caso
     Case "x"
       SvgImagen = Replace$(SvgImagen, "Coord_xxxx", texto)
@@ -421,37 +421,37 @@ Public Sub sustituirXYFW(texto As String, caso As String) ''sustituye los datos 
     Case "fh"
       SvgImagen = Replace$(SvgImagen, "fhh", texto)
   End Select
-  
+
 End
 
 Public Sub activarFinFicheroAnterior()
-  
+
   Dim a As Integer
   'destino ya esta definida
-  
+
   Print
   Print "(activarFinFicheroAnterior) Fichero abierto:", ficheroAbierto
-  
+
   If ficheroAbierto = True Then
     Print ""
-    
+
     ''FIXME: terminar por reemplazar y guardar la zona de imagen
-    
+
     If imagenEnProceso = True Then
       cerrarImagen()
     Endif
-    
+
     '' Reemplazos de la orden [svg]
     'Realizando reemplazos de las lista Antiguos / Lista Nuevos
     For a = 0 To listaAntigua.count - 1
-      
+
       ContenidoActualSVG = Replace$(ContenidoActualSVG, listaAntigua[a], listaNueva[a])
-      
+
     Next
     'vacio las listas para el proximo fichero
     listaAntigua.clear()
     listaNueva.clear()
-    
+
     Print "Fichero Abierto, guardando contenido en: "; nombrefinal
     'hay que guardar los datos
     file.save(nombrefinal, ContenidoActualSVG)
@@ -459,22 +459,22 @@ Public Sub activarFinFicheroAnterior()
     ContenidoActualSVG = ""
     ficheroAbierto = False
     'generar pdf
-    Exec ["inkscape", nombrefinal, "--export-dpi=" & dpivalor, "--export-png", Replace(nombrefinal, ".svg", ".png")]
+    Exec ["inkscape", nombrefinal, "--export-dpi=" & dpivalor, "--export-type png", Replace(nombrefinal, ".svg", ".png")] 'cambio de --export-png a --export-type png
     '' lo quito porque me esta dando muchos problemas: , ">>", ".\\log_inkscape.txt"]
     'formato pdf
-    Exec ["inkscape", nombrefinal, "--export-dpi=" & dpivalor, "--export-pdf", Replace(nombrefinal, ".svg", ".pdf")]
-    
+    Exec ["inkscape", nombrefinal, "--export-dpi=" & dpivalor, "--export-type pdf", Replace(nombrefinal, ".svg", ".pdf")] 'cambio de --export-pdf a --export-type pdf
+
   Endif
-  
+
 End
 
 Public Function pwd() As String ''retorna la ruta actual donde se esta ejecutando el programa
-  
+
   Dim ruta As String
-  
+
   Shell "pwd" To ruta
-  
+
   'ruta = Application.Path
   Return Replace(ruta, "\n", "")
-  
+
 End

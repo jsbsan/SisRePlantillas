@@ -1,3 +1,6 @@
+* Wed Aug 12 2020 jsbsan <jusabejusabe@hotmail.com> 0.0.22
+- cambio parametro de --export-png a --export-type png
+
 * Sun Oct 15 2017 jsbsan <jusabejusabe@hotmail.com> 0.0.21
 -Convierto tambien en pdf
 
